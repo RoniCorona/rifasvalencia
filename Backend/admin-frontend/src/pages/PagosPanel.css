@@ -1,0 +1,686 @@
+/* admin-frontend/src/pages/PagosPanel.css */
+
+/* Variables CSS para colores y espaciado (consistentes con DashboardPage.css) */
+:root {
+    --primary-blue: #3b82f6;
+    --primary-blue-dark: #2563eb;
+    --secondary-green: #22c55e;
+    --secondary-green-dark: #16a34a;
+    --accent-purple: #a855f7;
+    --accent-purple-dark: #9333ea;
+    --danger-red: #ef4444;
+    --danger-red-dark: #dc2626;
+    --text-dark: #2c3e50;
+    --text-medium: #495057;
+    --text-light: #6c757d;
+    --bg-light: #f8f9fa;
+    --bg-medium: #e2e8f0;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --border-radius: 12px;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+}
+
+/* Estilos globales del contenedor del panel de pagos */
+.payments-panel-container {
+    background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec); /* Degradado suave */
+    min-height: 100vh;
+    padding: var(--spacing-lg) var(--spacing-sm); /* Padding responsivo */
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center; /* Centra el contenido */
+    align-items: flex-start; /* Alinea al inicio verticalmente */
+    overflow-x: hidden; /* ¡EVITA BARRAS HORIZONTALES EN LA PÁGINA COMPLETA! */
+}
+
+/* Contenedor principal del contenido para limitar el ancho y centrar */
+.payments-panel-content-wrapper {
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    padding: 0 var(--spacing-sm); /* Padding horizontal para evitar que el contenido toque los bordes */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+/* Estilos del encabezado del panel de pagos */
+.payments-header {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    flex-direction: column; /* Apila elementos en móvil */
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-md); /* Espacio entre elementos del header */
+}
+
+.payments-title {
+    font-size: 2.2rem; /* Tamaño de fuente responsivo */
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Permite que el título se ajuste en varias líneas */
+    justify-content: center;
+}
+
+.payments-title span {
+    color: var(--primary-blue);
+}
+
+.payments-subtitle {
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-md);
+    max-width: 800px;
+    line-height: 1.5;
+}
+
+.header-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+.header-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
+    flex-grow: 1;
+    justify-content: center;
+    min-width: 150px;
+}
+
+.header-btn:hover {
+    background-color: var(--primary-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header-btn.back-to-dashboard {
+    background-color: #607d8b; /* Azul grisáceo */
+}
+.header-btn.back-to-dashboard:hover {
+    background-color: #546e7a;
+}
+
+/* Estilos para todas las secciones de tarjetas (consistentes con dashboard) */
+.section-card-container {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card-container:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex; /* Para alinear ícono y texto */
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilos para la sección de consulta de tickets */
+.ticket-query-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    border-bottom: none; /* No queremos doble borde aquí */
+    padding-bottom: 0;
+}
+
+.ticket-query-section .section-title {
+    margin-bottom: 0; /* Ajuste de margen */
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.toggle-query-button {
+    background-color: #007bff; /* Azul de Bootstrap */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.toggle-query-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.query-content {
+    padding-top: var(--spacing-md);
+    border-top: 1px dashed var(--border-color); /* Divisor sutil */
+    margin-top: var(--spacing-md);
+}
+
+.query-inputs-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.query-button {
+    width: 100%; /* Ocupa todo el ancho en móvil */
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    margin-top: var(--spacing-sm); /* Espacio superior */
+}
+
+.query-error-message {
+    color: var(--danger-red);
+    font-weight: 500;
+    margin-top: var(--spacing-sm);
+    text-align: center;
+}
+
+/* Estilos para el resultado de la consulta del ticket */
+.ticket-details-result {
+    background-color: #f9f9f9;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.ticket-result-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-blue-dark);
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.ticket-result-title span {
+    color: var(--accent-purple-dark);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: var(--spacing-md);
+}
+
+.detail-group h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 5px;
+}
+
+.detail-group p {
+    font-size: 0.8rem; /* Ajuste de fuente */
+    line-height: 1.5; /* Ajuste de altura de línea */
+    margin-bottom: 4px; /* Ajuste de margen */
+    color: var(--text-medium);
+}
+
+.detail-group p strong {
+    color: var(--text-dark);
+}
+
+.view-comprobante-link {
+    color: var(--primary-blue);
+    text-decoration: underline;
+    font-weight: 600;
+}
+.view-comprobante-link:hover {
+    color: var(--primary-blue-dark);
+}
+
+/* Divisor horizontal */
+.divider {
+    border: none;
+    border-top: 2px solid #cfd8dc; /* Color de divisor */
+    margin: var(--spacing-lg) 0;
+    width: 80%; /* Ancho del divisor */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilos para la sección de filtros */
+.filters-section .section-title {
+    margin-bottom: var(--spacing-md);
+}
+
+.grid-filters {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: var(--spacing-md);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-label {
+    font-size: 0.85rem; /* ¡AJUSTE! Fuente aún más pequeña */
+    font-weight: 500;
+    color: var(--text-medium);
+    margin-bottom: 6px; /* Ajuste de margen */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-input,
+.filter-select {
+    width: 100%;
+    padding: 7px 9px; /* ¡AJUSTE! Padding más pequeño */
+    border: 1px solid var(--border-color);
+    border-radius: 6px; /* Ajuste de borde */
+    font-size: 0.9rem; /* ¡AJUSTE! Fuente más pequeña */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+}
+
+.filter-input:focus,
+.filter-select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    outline: none;
+}
+
+
+/* Estilos para la tabla de pagos */
+.payments-table-section .section-title {
+    margin-bottom: var(--spacing-md);
+}
+
+.payments-table-wrapper {
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
+}
+
+.payments-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Fuerza a que el ancho de las columnas sea fijo */
+}
+
+.payments-table th,
+.payments-table td {
+    padding: 8px; /* ¡AJUSTE! Padding aún más pequeño */
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Definir anchos para las columnas para distribuir el espacio */
+/* Ajustados para dar más espacio a comprador y menos a otros */
+.payments-table th:nth-child(1), .payments-table td:nth-child(1) { width: 9%; } /* Referencia */
+.payments-table th:nth-child(2), .payments-table td:nth-child(2) { width: 9%; } /* Rifa */
+.payments-table th:nth-child(3), .payments-table td:nth-child(3) { width: 19%; } /* Comprador */
+.payments-table th:nth-child(4), .payments-table td:nth-child(4) { width: 7%; }  /* Tickets */
+.payments-table th:nth-child(5), .payments-table td:nth-child(5) { width: 9%; } /* Monto */
+.payments-table th:nth-child(6), .payments-table td:nth-child(6) { width: 7%; }  /* Método */
+.payments-table th:nth-child(7), .payments-table td:nth-child(7) { width: 7%; }  /* Comprobante */
+.payments-table th:nth-child(8), .payments-table td:nth-child(8) { width: 8%; }  /* Estado */
+.payments-table th:nth-child(9), .payments-table td:nth-child(9) { width: 10%; } /* Fecha */
+.payments-table th:nth-child(10), .payments-table td:nth-child(10) { width: 15%; text-align: center; } /* Acciones */
+
+
+.payments-table th {
+    background-color: var(--bg-light);
+    font-weight: 600;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    font-size: 0.75rem; /* ¡AJUSTE! Fuente más pequeña */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.payments-table tbody tr:hover {
+    background-color: #f0f2f5;
+}
+
+.payments-table td {
+    font-size: 0.8rem; /* ¡AJUSTE! Fuente más pequeña */
+    color: var(--text-medium);
+}
+
+.payments-table td p {
+    margin-bottom: 2px; /* Ajuste de margen */
+}
+.payments-table td p:last-child {
+    margin-bottom: 0;
+}
+
+/* ¡NUEVO! Estilo para la tipografía dentro de la columna de Tickets (#) */
+.payments-table td:nth-child(4) {
+    font-weight: bold; /* Hace la tipografía negrita */
+}
+
+.tickets-assigned-list {
+    font-size: 0.65rem; /* ¡AJUSTE! Más pequeño para caber mejor */
+    color: var(--text-light);
+    display: block;
+}
+
+/* Estilos para los badges de estado */
+.status-badge {
+    padding: 1px 4px; /* ¡AJUSTE! Padding aún más pequeño */
+    border-radius: 3px; /* Ajuste de borde */
+    font-size: 0.6rem; /* ¡AJUSTE! Fuente aún más pequeña */
+    font-weight: 600;
+    text-transform: capitalize;
+    display: inline-block;
+    white-space: nowrap;
+    line-height: 1.1; /* Ajusta la altura de línea */
+    min-width: 50px; /* Ancho mínimo para que no se aplaste el texto */
+    text-align: center; /* Centra el texto dentro del badge */
+}
+
+.status-pendiente {
+    background-color: #fffbe6;
+    color: #d97706;
+    border: 1px solid #fcd34d;
+}
+
+.status-verificado {
+    background-color: #ecfdf5;
+    color: #10b981;
+    border: 1px solid #34d399;
+}
+
+.status-rechazado {
+    background-color: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #f87171;
+}
+
+/* Estilos para botones de acción en la tabla */
+.actions-cell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px; /* ¡AJUSTE! Espacio aún más pequeño entre botones */
+    justify-content: center; /* ¡AJUSTE! Centra los botones horizontalmente */
+    align-items: center;
+    min-width: 70px; /* Ancho mínimo para la celda de acciones */
+    padding-left: 0; /* Eliminamos el padding-left para centrar */
+}
+
+.action-button {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 2px 4px; /* ¡AJUSTE! Padding aún más pequeño */
+    border-radius: 3px;
+    font-size: 0.6rem; /* ¡AJUSTE! Fuente aún más pequeña */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px; /* Espacio mínimo entre ícono y texto */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.action-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.action-button.success-button {
+    background-color: #22c55e;
+}
+.action-button.success-button:hover {
+    background-color: #16a34a;
+}
+
+.action-button.danger-button {
+    background-color: #f97316;
+}
+.action-button.danger-button:hover {
+    background-color: #ea580c;
+}
+
+.action-button.delete-button {
+    background-color: #ef4444;
+}
+.action-button.delete-button:hover {
+    background-color: #dc2626;
+}
+
+/* Estilos de paginación */
+.pagination-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+    gap: var(--spacing-sm);
+}
+
+.pagination-info p {
+    font-size: 0.8rem; /* Ajuste de fuente */
+    color: var(--text-medium);
+}
+
+.pagination-info span {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 6px; /* Ajuste de espacio */
+}
+
+.pagination-button {
+    background-color: #607d8b;
+    color: white;
+    padding: 5px 10px; /* Ajuste de padding */
+    border-radius: 6px; /* Ajuste de borde */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 0.8rem; /* Ajuste de fuente */
+}
+
+.pagination-button:disabled {
+    background-color: #b0bec5;
+    cursor: not-allowed;
+    opacity: 0.7;
+    box-shadow: none;
+    transform: none;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: #546e7a;
+    transform: translateY(-1px);
+}
+
+/* Estilos para pantallas de carga y error (consistentes con dashboard) */
+.loading-screen, .error-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    color: var(--text-dark);
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.loading-spinner {
+    font-size: 4rem;
+    color: var(--primary-blue);
+    animation: spin 1s linear infinite;
+    margin-bottom: var(--spacing-md);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-medium);
+}
+
+.error-icon {
+    font-size: 4rem;
+    color: var(--danger-red);
+    margin-bottom: var(--spacing-md);
+}
+
+.error-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    font-size: 1.2rem;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-lg);
+    max-width: 600px;
+}
+
+.action-button.login {
+    background-color: #4CAF50;
+}
+
+.action-button.login:hover {
+    background-color: #388E3C;
+}
+
+/* --- Media Queries para Responsividad --- */
+
+/* Tabletas (768px y más) */
+@media (min-width: 768px) {
+    .payments-header {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        padding: var(--spacing-lg) var(--spacing-xl);
+    }
+
+    .payments-title {
+        font-size: 2.8rem;
+        justify-content: flex-start;
+    }
+
+    .payments-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    .header-buttons {
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        flex-grow: 0;
+    }
+
+    .header-btn {
+        flex-grow: 0;
+        min-width: unset;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .query-inputs-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas para los inputs de consulta */
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas para los detalles del ticket */
+    }
+
+    .grid-filters {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Más columnas para filtros */
+    }
+
+    .pagination-controls {
+        flex-direction: row; /* En fila en tabletas */
+    }
+}
+
+/* Escritorio (1024px y más) */
+@media (min-width: 1024px) {
+    .payments-panel-container {
+        padding: var(--spacing-lg) var(--spacing-lg);
+    }
+    .payments-panel-content-wrapper {
+        padding: 0;
+    }
+
+    .payments-title {
+        font-size: 3.2rem;
+    }
+
+    .header-buttons {
+        gap: 1rem;
+    }
+
+    .header-btn {
+        padding: 12px 22px;
+        font-size: 1rem;
+    }
+
+    /* Ajustes específicos para la tabla en escritorio */
+    .payments-table th,
+    .payments-table td {
+        font-size: 0.95rem; /* Revertimos a un tamaño ligeramente más grande para escritorio */
+    }
+
+    .actions-cell {
+        min-width: 150px; /* Más espacio para los botones de acción */
+    }
+}

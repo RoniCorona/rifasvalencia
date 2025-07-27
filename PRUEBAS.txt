@@ -1,0 +1,21 @@
+{
+  "nombreProducto": "Televisor Smart TV 55 pulgadas",
+  "descripcion": "Televisor 4K UHD con HDR y Smart TV integrado.",
+  "imagenUrl": "https://example.com/tv-55.jpg",
+  "precioTicket": 10,
+  "totalTickets": 200,
+  "ticketsVendidos": 0,
+  "fechaFin": "2026-12-31T23:59:59.000Z",
+  "estado": "activa",
+  "ganadorTicketId": null,
+  "ganadorNombre": null,
+  "_id": "6856cf527ae0750eb95fab22",
+  "fechaInicio": "2025-06-21T15:27:14.302Z",
+  "createdAt": "2025-06-21T15:27:14.307Z",
+  "updatedAt": "2025-06-21T15:27:14.307Z",
+  "__v": 0,
+  "porcentajeVendido": 0,
+  "id": "6856cf527ae0750eb95fab22"
+}
+
+http://localhost:5000/api/rifas/6856cf527ae0750eb95fab22

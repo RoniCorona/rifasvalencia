@@ -1,0 +1,584 @@
+/* admin-frontend/src/pages/RifasPage.css */
+
+/* Variables CSS (consistentes con otros paneles) */
+:root {
+    --primary-blue: #3b82f6;
+    --primary-blue-dark: #2563eb;
+    --secondary-green: #22c55e;
+    --secondary-green-dark: #16a34a;
+    --accent-purple: #a855f7;
+    --accent-purple-dark: #9333ea;
+    --danger-red: #ef4444;
+    --danger-red-dark: #dc2626;
+    --text-dark: #2c3e50;
+    --text-medium: #495057;
+    --text-light: #6c757d;
+    --bg-light: #f8f9fa;
+    --bg-medium: #e2e8f0;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --border-radius: 12px;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+}
+
+/* Estilos generales del contenedor de la página */
+.rifas-page-container {
+    background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
+    min-height: 100vh;
+    padding: var(--spacing-lg) var(--spacing-sm);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; /* Evita barras horizontales */
+}
+
+/* Encabezado del panel de rifas */
+.rifas-header {
+    width: 100%;
+    max-width: 1200px;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-md);
+}
+
+.rifas-header h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.rifas-header .header-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+.rifas-header .btn-navegacion {
+    background-color: #607d8b;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem;
+    flex-grow: 1;
+    justify-content: center;
+    min-width: 150px;
+}
+
+.rifas-header .btn-navegacion:hover {
+    background-color: #546e7a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.rifas-header .btn-dashboard {
+    background-color: var(--primary-blue);
+}
+.rifas-header .btn-dashboard:hover {
+    background-color: var(--primary-blue-dark);
+}
+
+/* Mensajes de carga/error */
+.loading-message, .error-message {
+    text-align: center;
+    padding: var(--spacing-md);
+    font-size: 1.1rem;
+    color: var(--text-medium);
+}
+.error-message {
+    color: var(--danger-red);
+    font-weight: 600;
+}
+
+/* Botón "Crear Nueva Rifa" */
+.add-button {
+    background-color: var(--secondary-green);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: var(--spacing-lg);
+}
+.add-button:hover {
+    background-color: var(--secondary-green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor del formulario */
+.form-container {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    width: 100%;
+    max-width: 700px; /* Ancho máximo para el formulario */
+}
+.form-container h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-group label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-medium);
+    margin-bottom: 0.5rem;
+}
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group input[type="datetime-local"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    outline: none;
+}
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+.calculated-price {
+    font-size: 0.9rem;
+    color: var(--secondary-green-dark);
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+.form-actions button[type="submit"] {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.form-actions button[type="submit"]:hover {
+    background-color: var(--primary-blue-dark);
+    transform: translateY(-2px);
+}
+.form-actions .cancel-button {
+    background-color: #ef4444;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.form-actions .cancel-button:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+}
+
+/* Lista de Rifas (Tabla) */
+.rifas-list {
+    width: 100%;
+    max-width: 1200px;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: var(--spacing-md);
+}
+.rifas-list h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.table-responsive {
+    overflow-x: auto; /* Permite scroll horizontal solo en la tabla si es necesario */
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.03);
+}
+
+.rifas-list table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Fuerza el layout fijo para la tabla */
+    min-width: 1000px; /* Ancho mínimo para la tabla en general */
+}
+
+.rifas-list th,
+.rifas-list td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+    vertical-align: middle;
+    word-wrap: break-word; /* Permite que el texto se envuelva */
+    overflow-wrap: break-word;
+    font-size: 0.9rem; /* Ajuste de fuente para celdas */
+}
+
+.rifas-list th {
+    background-color: var(--bg-light);
+    font-weight: 600;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    font-size: 0.8rem; /* Ajuste de fuente para encabezados */
+}
+
+/* Anchos de columnas de la tabla (ajustados para el nuevo diseño) */
+.rifas-list th:nth-child(1), .rifas-list td:nth-child(1) { width: 15%; } /* Nombre */
+.rifas-list th:nth-child(2), .rifas-list td:nth-child(2) { width: 8%; }  /* Vendidos */
+.rifas-list th:nth-child(3), .rifas-list td:nth-child(3) { width: 8%; }  /* Total */
+.rifas-list th:nth-child(4), .rifas-list td:nth-child(4) { width: 8%; }  /* % Vendido */
+.rifas-list th:nth-child(5), .rifas-list td:nth-child(5) { width: 8%; }  /* Precio USD */
+.rifas-list th:nth-child(6), .rifas-list td:nth-child(6) { width: 8%; }  /* Precio VES */
+.rifas-list th:nth-child(7), .rifas-list td:nth-child(7) { width: 10%; } /* Fecha Inicio */
+.rifas-list th:nth-child(8), .rifas-list td:nth-child(8) { width: 10%; } /* Fecha Fin */
+.rifas-list th:nth-child(9), .rifas-list td:nth-child(9) { width: 10%; } /* Fecha Sorteo */
+.rifas-list th:nth-child(10), .rifas-list td:nth-child(10) { width: 8%; } /* Estado General */
+.rifas-list th:nth-child(11), .rifas-list td:nth-child(11) { width: 20%; text-align: center; } /* Acciones */
+
+
+.rifas-list tbody tr:hover {
+    background-color: #f0f2f5;
+}
+
+/* Estilos para badges de estado */
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    display: inline-block;
+    white-space: nowrap;
+}
+.status-activa { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.status-pausada { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+.status-finalizada, .status-sorteada { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+
+/* Estilos para la celda de acciones */
+.actions-cell {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    gap: 5px; /* Espacio entre los elementos de acción */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    min-width: 120px; /* Ancho mínimo para la celda de acciones */
+}
+
+/* Estilos para los botones de acción (Editar, Eliminar, Sortear) */
+.action-button {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 6px 10px; /* Padding ajustado para botones más pequeños */
+    border-radius: 6px;
+    font-size: 0.8rem; /* Fuente más pequeña para botones */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%; /* Ocupa el 100% del ancho disponible en la columna */
+    max-width: 100px; /* Limita el ancho máximo para que no sean demasiado anchos */
+}
+.action-button:hover {
+    background-color: var(--primary-blue-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.action-button.edit-button { background-color: #007bff; } /* Azul Bootstrap */
+.action-button.edit-button:hover { background-color: #0056b3; }
+.action-button.delete-button { background-color: #dc3545; } /* Rojo Bootstrap */
+.action-button.delete-button:hover { background-color: #c82333; }
+.action-button.sortear-button { background-color: #6f42c1; } /* Morado */
+.action-button.sortear-button:hover { background-color: #563d7c; }
+
+.winner-info {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* Estilos para el ToggleSwitch */
+.toggle-switch-container {
+    /* Estilo general del contenedor que se verá como el botón */
+    width: 100px; /* Ancho fijo para el botón de toggle */
+    height: 35px; /* Altura fija */
+    border-radius: 8px; /* ¡AJUSTE! Bordes más cuadrados para parecer un botón */
+    background-color: #ef4444; /* Color por defecto: Rojo (Cerrada) */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Sombra para darle profundidad */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* Para ocultar el contenido que se desliza */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave del color de fondo y sombra */
+    display: flex; /* Para centrar el contenido */
+    align-items: center;
+    justify-content: center; /* Centrar todo el contenido */
+    padding: 0; /* Sin padding interno */
+    box-sizing: border-box; /* Incluir padding en el ancho/alto */
+    margin-bottom: 5px; /* Espacio debajo del toggle si hay otros elementos */
+}
+.toggle-switch-container:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el ratón */
+}
+
+.toggle-switch-checkbox {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+/* El label es el área clicable principal, no el elemento visual */
+.toggle-switch-label {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Para que sea clicable */
+}
+
+/* Texto "Abierta" y "Cerrada" directamente en el contenedor, superpuestos */
+.toggle-switch-container::before,
+.toggle-switch-container::after {
+    display: flex; /* Usar flex para centrar el texto */
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 100%;
+    font-size: 0.8rem; /* ¡AJUSTE! Fuente para el texto del botón */
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    line-height: 1; /* Ajuste de line-height */
+    transition: opacity 0.3s ease;
+    z-index: 1; /* Detrás del switch */
+}
+
+.toggle-switch-container::before { /* Texto "Abierta" */
+    content: "Abierta";
+    background-color: #22c55e; /* Color para "Abierta" */
+    opacity: 0; /* Oculto por defecto */
+}
+
+.toggle-switch-container::after { /* Texto "Cerrada" */
+    content: "Cerrada";
+    background-color: #ef4444; /* Color para "Cerrada" */
+    opacity: 1; /* Visible por defecto */
+}
+
+
+.toggle-switch-switch {
+    display: block;
+    width: 25px; /* Ancho del interruptor (pastilla) */
+    height: 25px; /* Altura del interruptor */
+    background: #fff;
+    border-radius: 6px; /* ¡AJUSTE! Bordes más cuadrados para la pastilla */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centrado vertical */
+    left: 5px; /* Posición inicial a la izquierda */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    z-index: 3; /* Encima del texto */
+}
+
+/* Estado "checked" */
+.toggle-switch-checkbox:checked + .toggle-switch-label + .toggle-switch-container {
+    background-color: #22c55e; /* Cambia el color de fondo del contenedor a verde */
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-label + .toggle-switch-container::before {
+    opacity: 1; /* Muestra el texto "Abierta" */
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-label + .toggle-switch-container::after {
+    opacity: 0; /* Oculta el texto "Cerrada" */
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-switch {
+    transform: translateY(-50%) translateX(calc(100% - 30px)); /* Mueve el switch a la derecha, ajustado por padding */
+    /* Ancho del contenedor (100px) - padding (5px*2) - ancho switch (25px) = 65px */
+    /* 100px - 5px(left) - 25px(width) = 70px. Movemos 70 - 5 = 65px */
+}
+
+
+/* Deshabilitar el texto al lado del switch si ya no se usa */
+.toggle-switch-text {
+    display: none; 
+}
+
+
+/* Mensaje cuando no hay rifas */
+.no-rifas-message {
+    text-align: center;
+    padding: var(--spacing-lg);
+    font-size: 1.2rem;
+    color: var(--text-light);
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    margin-top: var(--spacing-lg);
+}
+
+
+/* Media Queries para Responsividad */
+
+/* Tabletas (768px y más) */
+@media (min-width: 768px) {
+    .rifas-header {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        padding: var(--spacing-lg) var(--spacing-xl);
+    }
+
+    .rifas-header h2 {
+        font-size: 2.8rem;
+    }
+
+    .rifas-header .header-buttons {
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        flex-grow: 0;
+    }
+
+    .rifas-header .btn-navegacion {
+        flex-grow: 0;
+        min-width: unset;
+    }
+
+    .form-container {
+        padding: var(--spacing-xl);
+    }
+
+    .rifas-list table {
+        min-width: 1000px; /* Mantener un ancho mínimo para la tabla */
+    }
+
+    .rifas-list th,
+    .rifas-list td {
+        font-size: 0.95rem; /* Un poco más grande en tabletas */
+    }
+    .rifas-list th {
+        font-size: 0.85rem;
+    }
+
+    .status-badge {
+        font-size: 0.7rem;
+    }
+
+    .action-button {
+        font-size: 0.75rem; /* Un poco más grande para botones en tabletas */
+        padding: 7px 10px;
+    }
+
+    .toggle-switch-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Escritorio (1024px y más) */
+@media (min-width: 1024px) {
+    .rifas-page-container {
+        padding: var(--spacing-lg) var(--spacing-lg);
+    }
+
+    .rifas-header h2 {
+        font-size: 3.2rem;
+    }
+
+    .rifas-header .btn-navegacion {
+        padding: 12px 22px;
+        font-size: 1rem;
+    }
+
+    .rifas-list table {
+        min-width: 1200px; /* Aumentar el ancho mínimo en escritorio si es necesario */
+    }
+
+    .rifas-list th,
+    .rifas-list td {
+        font-size: 1rem; /* Tamaño normal en escritorio */
+    }
+    .rifas-list th {
+        font-size: 0.9rem;
+    }
+
+    .status-badge {
+        font-size: 0.8rem;
+    }
+
+    .action-button {
+        font-size: 0.9rem; /* Tamaño normal para botones en escritorio */
+        padding: 8px 12px;
+    }
+    .actions-cell {
+        min-width: 180px; /* Más espacio para los botones de acción en escritorio */
+    }
+}

@@ -1,0 +1,20 @@
+¿Cuál quieres que sea el siguiente paso? Ahora que la autenticación está en su lugar, podemos:
+
+
+
+1. Desarrollar la página de Gestión de Rifas: Crear la interfaz para listar, crear, editar y eliminar rifas, consumiendo las APIs que ya tienes.
+
+
+
+2. Desarrollar la página de Gestión de Pagos: Para ver y verificar los pagos pendientes.
+
+
+
+3. Trabajar en el DashboardPage: Para mostrar las estadísticas resumen que mencionamos al inicio.
+
+
+
+me dijiste que este era el plan de acción, hicismos la pagina de gestion de rifas, hicimos la pagina de gestión de pagos y ahora nos toca trabajar en el DashboardPage te parece?
+
+
+

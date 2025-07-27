@@ -1,0 +1,1618 @@
+/* === Variables CSS para fácil edición de colores === */
+:root {
+    --primary-blue: #1A365D; /* Azul oscuro principal, corporativo */
+    --secondary-blue: #2A528A; /* Azul medio, para acciones y acentos */
+    --light-blue: #4299E1; /* Azul claro, para resaltados */
+    --accent-gold: #FFD700; /* Dorado para progreso y acentos */
+    --light-gold: #DAA520; /* Dorado más claro para degradado */
+    --text-dark: #2D3748; /* Gris oscuro para texto principal */
+    --text-light: #4A5568; /* Gris medio para texto secundario */
+    --bg-light: #F7FAFC; /* Fondo muy claro */
+    --bg-white: #FFFFFF; /* Blanco puro para elementos destacados */
+    --border-light: #E2E8F0; /* Borde claro */
+    --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.12);
+    --transition-fast: 0.2s ease-out;
+    --transition-medium: 0.3s ease-in-out;
+    --button-radius: 10px; /* ¡Ajustado para un borde más suave! */
+    --button-padding-y: 0.8rem; /* Padding vertical base para botones */
+    --button-padding-x: 1.6rem; /* Padding horizontal base para botones */
+}
+
+/* === Estilo Global (MOBILE-FIRST) === */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px; /* Base para rem en móviles */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background: linear-gradient(to bottom right, var(--bg-light), #edf2f7);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- Header - PROFESIONAL Y MODERNO --- */
+header {
+    background: var(--primary-blue);
+    color: white;
+    padding: 1.2rem 1rem;
+    text-align: center;
+    position: relative;
+    top: unset;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: row; /* CORREGIDO: Asegura que el contenido se mantenga en una fila */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 180px;
+    overflow: hidden;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+header h1 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+header h1 a:hover {
+    color: var(--light-blue);
+}
+
+.header-buttons {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-left: auto;
+    width: 100%;
+    justify-content: center;
+}
+
+/* --- Botones del Header - MEJORADOS --- */
+.header-buttons button {
+    background-color: var(--light-blue);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.4rem;
+    border-radius: var(--button-radius);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), transform 0.15s ease, box-shadow var(--transition-fast);
+    box-shadow: 0 4px 10px rgba(49, 130, 206, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+}
+
+.header-buttons button:hover {
+    background-color: #3182ce;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(49, 130, 206, 0.35);
+}
+
+.header-buttons button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(49, 130, 206, 0.2);
+}
+
+/* --- Footer - PROFESIONAL Y CONCISO --- */
+footer {
+    background: var(--primary-blue);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    border-top: 4px solid var(--secondary-blue);
+    box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer p {
+    margin: 0;
+    opacity: 0.85;
+}
+
+.footer-links {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 0.7rem;
+    transition: color var(--transition-fast);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.footer-links a:hover {
+    color: var(--light-blue);
+}
+
+.social-icons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.4rem;
+    transition: color var(--transition-fast), transform 0.15s ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-gold);
+    transform: translateY(-2px);
+}
+
+/* --- FOOTER SOCIAL MEDIA (Nuevos estilos para redes sociales) --- */
+.footer-social-media {
+    text-align: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--secondary-blue);
+    width: 100%;
+}
+
+.footer-social-media h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.1em;
+    color: white;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0;
+}
+
+.social-icons a {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+    line-height: 1;
+    color: white;
+    font-size: 1.4rem;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+    color: var(--accent-gold);
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+
+/* === Títulos y Párrafos === */
+h1, h2, h3, h4 {
+    margin-bottom: 0.6rem;
+    color: var(--primary-blue);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.2rem; }
+
+p {
+    opacity: 0.9;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    padding: 2.5rem 1rem;
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+}
+
+/* === Formularios y Botones === */
+form input,
+form button,
+form select {
+    padding: var(--button-padding-y) var(--button-padding-x);
+    font-size: 0.95rem;
+    margin: 0.4rem 0;
+    border-radius: var(--button-radius);
+    border: 1px solid var(--border-light);
+    transition: all var(--transition-fast);
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+form input:focus,
+form select:focus {
+    outline: none;
+    border: 2px solid var(--secondary-blue);
+    box-shadow: 0 0 0 3px rgba(42, 82, 138, 0.2);
+}
+
+/* --- Botones de Formulario General - MEJORADOS --- */
+form button {
+    background-color: var(--secondary-blue);
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(42, 82, 138, 0.2);
+    transition: background-color var(--transition-fast), transform 0.15s ease, box-shadow var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+}
+
+form button:hover {
+    background-color: var(--light-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(42, 82, 138, 0.3);
+}
+
+form button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(42, 82, 138, 0.2);
+}
+
+/* === Sección de Rifas (index.html) === */
+#rifas-disponibles {
+    padding: 2rem 1rem;
+    background: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+}
+
+#rifas-disponibles h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    position: relative;
+}
+
+#rifas-disponibles h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-gold), var(--light-gold));
+    margin: 0.6rem auto 0;
+    border-radius: 1.5px;
+}
+
+.contenedor-rifas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* === Tarjetas de Rifa - DISEÑO ORIGINAL (INTACTO) === */
+.rifa-card {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 14px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-card-info {
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    overflow: hidden;
+}
+
+.titulo-producto-rifa {
+    font-size: 1.35rem;
+    margin: 0.5rem 0.8rem;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.imagen-rifa {
+    height: 400px;
+    overflow: hidden;
+}
+
+.imagen-rifa img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.rifa-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(26, 54, 93, 0.2);
+}
+
+/* === SECCIÓN DE PROGRESO (TEXTO) - VUELTA A ORIGINAL === */
+.progreso {
+    background: linear-gradient(to right, #2a528a, #90cdf4);
+    color: white;
+    padding: 0.6rem;
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.barra-container {
+    width: 100%;
+    height: 12px;
+    background-color: #e2e8f0;
+    margin: 0;
+    position: relative;
+}
+
+/* === BARRA DE PROGRESO (VISUAL) - AHORA SÍ DORADA === */
+.barra-progreso {
+    height: 100%;
+    background: linear-gradient(90deg, #DAA520, #FFD700);
+    transition: width 0.6s ease;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+/* === FIN BARRA DE PROGRESO DORADA === */
+
+.contenido-rifa {
+    padding: 0.5rem 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contenido-rifa p {
+    margin: 0.3rem 0;
+}
+
+.precio {
+    font-weight: bold;
+    color: #1a365d;
+    font-size: 1.1rem;
+}
+
+/* --- Contenedor de Acciones de la Tarjeta - ¡AHORA LOS BOTONES SE APILAN! --- */
+.acciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 0.8rem;
+}
+
+/* --- Botón Comprar de la tarjeta - MEJORADO --- */
+.btn-comprar {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: var(--button-radius);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(26, 54, 93, 0.2);
+    outline: none;
+}
+
+.btn-comprar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(26, 54, 93, 0.35);
+    background: linear-gradient(to right, var(--secondary-blue), var(--light-blue));
+}
+
+.btn-comprar:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(26, 54, 93, 0.2);
+}
+
+.btn-comprar[disabled] {
+    background: #a0aec0 !important;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+    transform: none !important;
+    opacity: 0.8;
+}
+
+/* --- Botón Ver Tickets de la tarjeta - MEJORADO --- */
+.ver-tickets {
+    background: var(--bg-light);
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    color: var(--text-dark);
+    border: 1px solid var(--border-light);
+    padding: 0.7rem 1.1rem;
+    border-radius: var(--button-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.ver-tickets:hover {
+    background: #e2e8f0;
+    border-color: var(--secondary-blue);
+    color: var(--secondary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.ver-tickets:active {
+    transform: translateY(0);
+    box-shadow: 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* === ESTILOS DEL OVERLAY DEL MODAL (GENÉRICO Y CORREGIDO) === */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    visibility: visible;
+}
+
+.modal.oculto {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.modal-contenido {
+    background-color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: fadeInModal 0.4s ease;
+    text-align: center;
+    border: 1px solid var(--border-light);
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: color var(--transition-fast);
+    line-height: 1;
+    padding: 0;
+    outline: none;
+}
+
+.cerrar-modal:hover {
+    color: var(--primary-blue);
+}
+.cerrar-modal:active {
+    transform: translateY(1px);
+}
+
+/* === Estilos Específicos para el Modal de Consulta de Tickets === */
+#modalTickets .modal-contenido {
+    max-width: 600px;
+    text-align: left;
+    padding: 1.8rem;
+}
+
+#modalTickets .modal-contenido h2 {
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 1.6rem;
+    color: var(--primary-blue);
+}
+
+/* --- Botón del formulario de consulta de tickets - MEJORADO --- */
+#modalTickets #formConsultarTickets button {
+    background-color: var(--secondary-blue);
+    width: 100%;
+    max-width: 300px;
+    padding: var(--button-padding-y) var(--button-padding-x);
+    margin-top: 15px;
+    border-radius: var(--button-radius);
+    box-shadow: 0 4px 10px rgba(42, 82, 138, 0.2);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+}
+
+#modalTickets #formConsultarTickets button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(42, 82, 138, 0.3);
+}
+#modalTickets #formConsultarTickets button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(42, 82, 138, 0.2);
+}
+
+#modalTickets #formConsultarTickets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modalTickets #formConsultarTickets input {
+    width: 100%;
+    max-width: 300px;
+    border-radius: var(--button-radius);
+    padding: 0.7rem;
+}
+
+#resultados-consulta-tickets {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fdfefe;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    text-align: left;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+#resultados-consulta-tickets h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    text-align: center;
+    color: var(--primary-blue);
+}
+
+.consulta-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--border-light);
+}
+
+.consulta-header h2 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.buyer-details p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    word-break: break-word;
+}
+
+.buyer-details strong {
+    color: var(--primary-blue);
+}
+
+.rifa-tickets-group {
+    border: 1px solid var(--border-light);
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background: var(--bg-white);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.rifa-tickets-group p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.rifa-tickets-group strong {
+    color: var(--secondary-blue);
+}
+
+/* === BOLETOS INDIVIDUALES - VUELTA A ORIGINAL === */
+.boletos-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    justify-content: flex-start;
+}
+
+.boletos-list .boleto {
+    background: #ebf8ff; /* Un azul muy claro, consistente con el diseño general */
+    border: 2px solid var(--secondary-blue);
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    font-weight: bold;
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+    min-width: 80px;
+    animation: fadeIn 0.5s ease forwards;
+    white-space: nowrap;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    box-shadow: var(--shadow-subtle);
+}
+
+.boletos-list .boleto:hover {
+    background: var(--light-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(42, 82, 138, 0.2);
+}
+
+.boleto-consulta {
+  background: #ebf8ff;
+  border: 2px solid var(--secondary-blue);
+  color: var(--primary-blue);
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  min-width: 80px;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  margin: 4px;
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.2s ease-in-out;
+}
+
+.boleto-consulta:hover {
+  background: var(--light-blue);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(42, 82, 138, 0.2);
+}
+
+/* === FIN BOLETOS INDIVIDUALES === */
+
+.mensaje-error {
+    color: #E53E3E;
+    margin-top: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* === Estilos para página de detalles de rifa (rifa.html) === */
+.contenedor-rifa-detalle {
+    padding: 2.5rem 1rem;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+    background: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+}
+
+.barra-venta-general {
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 1.5rem;
+}
+
+.porcentaje-venta {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+    color: #1a365d;
+}
+
+.barra-global {
+    width: 100%;
+    height: 18px;
+    background-color: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* === BARRA DE PROGRESO GLOBAL (VISUAL) - AHORA SÍ DORADA === */
+.barra-global-progreso {
+    height: 100%;
+    background: linear-gradient(90deg, #DAA520, #FFD700);
+    transition: width 0.6s ease;
+}
+/* === FIN BARRA DE PROGRESO GLOBAL DORADA === */
+
+.titulo-premio {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.imagen-producto-grande img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+}
+
+.datos-premio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.dato {
+    background: #edf2f7;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+    color: #2d3748;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    flex: 1 1 calc(50% - 1rem); /* 2 columnas en móviles */
+    min-width: 140px;
+}
+
+.descripcion-rifa {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    text-align: left;
+    line-height: 1.6;
+}
+
+.descripcion-rifa h3 {
+    margin-bottom: 1rem;
+}
+
+.descripcion-rifa p {
+    color: #4a5568;
+    font-size: 1rem;
+}
+
+.seccion-compra {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+.seccion-compra h3 {
+    margin-bottom: 1.5rem;
+}
+
+.botones-precio {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.botones-precio button {
+    background: #ebf8ff;
+    color: #2b6cb0;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: default;
+    flex: 1 1 auto;
+    min-width: 140px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.botones-precio button span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #2b6cb0;
+}
+
+/* Contenedor de mensajes (éxito/error) */
+#message-container {
+    max-width: 90%;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    border-radius: var(--button-radius);
+    text-align: center;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    box-shadow: var(--shadow-subtle);
+}
+
+/* Mensaje de éxito */
+#message-container.success {
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mensaje de error */
+#message-container.error {
+    background-color: #F8D7DA;
+    color: #721C24;
+    border: 1px solid #F5C6CB;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Total a Pagar - Estilos Ajustados */
+.total-a-pagar {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin: 20px auto;
+    max-width: 450px;
+    text-align: center;
+    background: #e0f2fe;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--light-blue);
+    box-shadow: 0 3px 8px rgba(49, 130, 206, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.total-a-pagar .total-label,
+.total-a-pagar #totalPagarDisplay {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.total-a-pagar #totalPagarDisplay {
+    font-size: 1.2em;
+    color: var(--primary-blue);
+}
+
+.cantidad-comprar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.2rem 0;
+    gap: 0.6rem;
+}
+
+/* --- Botones de cantidad (+/-) - MEJORADOS --- */
+.cantidad-comprar button {
+    font-size: 1.6rem;
+    padding: 0.3rem 1rem;
+    background: var(--secondary-blue);
+    color: white;
+    border: none;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    width: auto;
+    box-shadow: 0 4px 10px rgba(42, 82, 138, 0.2);
+    transition: all var(--transition-fast);
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+}
+
+.cantidad-comprar button:hover {
+    background: var(--light-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(42, 82, 138, 0.3);
+}
+
+.cantidad-comprar button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(42, 82, 138, 0.2);
+}
+
+.cantidad-comprar input {
+    width: 70px;
+    text-align: center;
+    font-size: 1.1rem;
+    border-radius: var(--button-radius);
+    border: 1px solid var(--border-light);
+    padding: 0.5rem;
+    font-weight: 500;
+}
+
+/* --- Botones de cantidad rápida (1, 5, 10, etc.) - MEJORADOS --- */
+.botones-cantidad-rapida {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 1rem 0;
+}
+
+.botones-cantidad-rapida button {
+    background: #ebf8ff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--button-radius);
+    padding: 0.7rem 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex: 1 1 auto;
+    max-width: 60px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+}
+
+.botones-cantidad-rapida button:hover {
+    background: #bee3f8;
+    border-color: var(--secondary-blue);
+    color: var(--secondary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.botones-cantidad-rapida button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.botones-cantidad-rapida button.seleccionado {
+    background: var(--secondary-blue);
+    color: white;
+    border-color: var(--secondary-blue);
+    transform: scale(1.05);
+    box-shadow: 0 3px 8px rgba(42, 82, 138, 0.2);
+}
+
+.formulario-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.cedula-grupo {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: nowrap;
+}
+
+.cedula-grupo select {
+    max-width: 100px;
+    flex-shrink: 0;
+    border-radius: var(--button-radius);
+}
+.cedula-grupo input {
+    flex-grow: 1;
+    border-radius: var(--button-radius);
+}
+
+
+/* --- Botones de formulario (p. ej., "Continuar", "Pagar") - MEJORADOS y APILADOS --- */
+.botones-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 0.8rem;
+}
+
+.botones-form button {
+    padding: var(--button-padding-y) var(--button-padding-x);
+    border: none;
+    border-radius: var(--button-radius);
+    font-weight: 600;
+    background: var(--secondary-blue);
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    max-width: 250px;
+    box-shadow: 0 4px 10px rgba(42, 82, 138, 0.2);
+    transition: all var(--transition-fast);
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    outline: none;
+}
+.botones-form button:hover {
+    background: var(--light-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(42, 82, 138, 0.3);
+}
+.botones-form button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(42, 82, 138, 0.2);
+}
+
+
+#seccion-pago {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    text-align: center;
+    border: 1px solid var(--border-light);
+}
+
+.metodos-pago {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+}
+
+.metodo {
+    border: 2px solid transparent;
+    background: #fdfefe;
+    padding: 1.2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 250px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: center;
+    flex: 1 1 auto;
+    box-shadow: var(--shadow-subtle);
+}
+
+.metodo img {
+    max-width: 100%;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 0.6rem;
+}
+
+.metodo:hover,
+.metodo.seleccionado {
+    border-color: var(--secondary-blue);
+    background: #ebf8ff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(42, 82, 138, 0.15);
+}
+
+.oculto {
+    display: none;
+}
+
+.detalles-pago {
+    margin-top: 1.2rem;
+    text-align: left;
+    background: #fdfefe;
+    padding: 1.2rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-light);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.detalles-pago input[type="text"],
+.detalles-pago input[type="file"] {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.8rem;
+    font-size: 0.95rem;
+    border-radius: var(--button-radius);
+    border: 1px solid var(--border-light);
+    background-color: #ffffff;
+    transition: border var(--transition-fast);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.detalles-pago input:focus {
+    outline: none;
+    border: 2px solid var(--secondary-blue);
+    box-shadow: 0 0 0 3px rgba(42, 82, 138, 0.2);
+}
+
+.detalles-pago label {
+    display: block;
+    margin-top: 1.5rem;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.vista-previa {
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.vista-previa img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 10px;
+    margin-top: 0.6rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-light);
+}
+
+.mensaje-error {
+    color: #E53E3E;
+    margin-top: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#seccion-final {
+    background: radial-gradient(circle at top left, #f8fafc, #edf2f7);
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.final-card {
+    max-width: 800px;
+    margin: auto;
+    background: #ffffff;
+    border: 2px dashed #3182ce;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(49, 130, 206, 0.15);
+    background-image: url('img/pattern-light.svg');
+    background-repeat: repeat;
+}
+
+.icono-check {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #38a169;
+    animation: popIn 0.6s ease forwards;
+}
+
+.resumen-final {
+    text-align: left;
+    margin: 2rem 0;
+    line-height: 1.7;
+    background: #ebf8ff;
+    padding: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.05);
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* === BOLETOS ASIGNADOS - VUELTA A ORIGINAL === */
+.boletos-asignados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.boletos-asignados .boleto {
+    background: #ebf8ff;
+    border: 2px solid #3182ce;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #2a528a;
+    font-size: 1.1rem;
+    min-width: 80px;
+    animation: fadeIn 0.5s ease forwards;
+    white-space: nowrap;
+}
+/* === FIN BOLETOS ASIGNADOS === */
+
+.mensaje-correo {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    color: #4a5568;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* --- Botón Volver al Inicio - MEJORADO --- */
+.btn-volver-inicio {
+    display: inline-block;
+    background: linear-gradient(to right, var(--accent-gold), var(--light-gold));
+    color: var(--primary-blue);
+    padding: var(--button-padding-y) 2rem;
+    border-radius: var(--button-radius);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-top: 2.5rem;
+    box-shadow: 0 6px 16px rgba(255, 215, 0, 0.25);
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+}
+
+.btn-volver-inicio:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.35);
+    background: linear-gradient(to right, var(--accent-gold), #FFEB3B);
+}
+.btn-volver-inicio:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(255, 215, 0, 0.2);
+}
+
+
+/* ANIMACIONES */
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* === ESTILOS PARA MODAL DE TÉRMINOS Y CONDICIONES === */
+
+#modalTerminos .modal-contenido.terminos {
+    max-width: 650px;
+    text-align: left;
+}
+
+#modalTerminos h2 {
+    text-align: center;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.terminos-texto {
+    max-height: 40vh;
+    overflow-y: auto;
+    border: 1px solid var(--border-light);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    background-color: var(--bg-light);
+}
+
+.terminos-texto p, .terminos-texto li {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.terminos-texto ol {
+    padding-left: 20px;
+}
+
+.acciones-modal {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.acciones-modal button {
+    padding: var(--button-padding-y) var(--button-padding-x);
+    font-weight: 600;
+    border: none;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-family: 'Montserrat', sans-serif;
+    min-width: 150px;
+}
+
+/* Botón Aceptar - Estilo primario */
+.btn-aceptar {
+    background-color: var(--secondary-blue);
+    color: white;
+    box-shadow: 0 4px 10px rgba(42, 82, 138, 0.2);
+}
+
+.btn-aceptar:hover {
+    background-color: var(--light-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(42, 82, 138, 0.3);
+}
+
+/* Botón Rechazar - Estilo de "peligro" o secundario */
+.btn-rechazar {
+    background-color: #E53E3E;
+    color: white;
+    box-shadow: 0 4px 10px rgba(229, 62, 62, 0.2);
+}
+
+.btn-rechazar:hover {
+    background-color: #C53030;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(229, 62, 62, 0.3);
+}
+
+/* === HEADER IMAGES CORREGIDAS Y RESPONSIVAS === */
+.header-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap; /* CORREGIDO: Evita que los elementos se apilen */
+    gap: 2rem;
+    padding: 1.5rem 1rem;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.header-images a img {
+    width: 165px;
+    height: 105px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* === Media Queries para Responsividad === */
+
+/* Para tabletas y dispositivos medianos (min-width 481px) */
+@media (min-width: 481px) {
+    html { font-size: 15px; }
+    main { padding: 1.5rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    .rifa-card {
+        width: calc(50% - 1.5rem);
+        max-width: none;
+    }
+    .datos-premio .dato {
+        flex: 1 1 calc(50% - 1rem);
+    }
+    .botones-precio button {
+        min-width: 180px;
+    }
+    .metodo {
+        flex-basis: calc(50% - 1rem);
+    }
+    .header-images {
+        gap: 1.5rem;
+    }
+    .header-images a img {
+        width: 130px;
+        height: 80px;
+    }
+    .cedula-grupo {
+        flex-direction: row;
+        gap: 0.6rem;
+    }
+    .cedula-grupo select {
+        width: auto;
+    }
+    .cedula-grupo input {
+        flex-grow: 1;
+    }
+    .botones-form button {
+        max-width: 250px;
+    }
+}
+
+/* Para escritorios y pantallas grandes (min-width 769px) */
+@media (min-width: 769px) {
+    html { font-size: 16px; }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2.2rem; }
+    main { padding: 2.5rem 2rem; }
+    .rifa-card {
+        width: calc(33.333% - 1.5rem);
+        max-width: none;
+    }
+    .datos-premio .dato {
+        flex: 1 1 calc(33.333% - 1rem);
+    }
+    .metodo {
+        flex-basis: calc(33.333% - 1rem);
+    }
+    header h1 {
+        width: auto;
+        margin-bottom: 0;
+    }
+    .header-buttons {
+        width: auto;
+    }
+    .header-images {
+        gap: 2rem;
+    }
+    .header-images a img {
+        width: 165px;
+        height: 105px;
+    }
+    .botones-form {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .botones-form button {
+        max-width: 200px;
+    }
+}
+
+/* Estilo para campos requeridos no completados */
+/*.campo-requerido {
+  border: 2px solid #E53E3E !important; /* rojo alerta */
+ /* background-color: #fff5f5;             /* fondo ligeramente rosado */
+ /* transition: border-color 0.3s, background-color 0.3s;
+}
+
+.error-campo {
+  color: #E53E3E;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+
+/* --- ESTILOS PARA EL LOADER --- */
+#siguienteMetodo {
+    position: relative;
+    overflow: hidden;
+}
+
+#siguienteMetodo.is-loading span:first-of-type {
+    visibility: hidden;
+}
+
+#siguienteMetodo .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#siguienteMetodo.is-loading .spinner {
+    opacity: 1;
+}
+
+/* Animación para el spinner */
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Estilo base para el botón deshabilitado */
+#siguienteMetodo:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* --- ESTILOS PARA MENSAJES DE ALERTA (DENTRO DE #message-container) --- */
+
+/* Estilo base para todos los tipos de alerta */
+.alert {
+    padding: 1rem 1.5rem; /* Relleno interno */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 0.5rem 0; /* Margen superior e inferior para separación */
+    font-size: 1rem; /* Tamaño de fuente */
+    font-weight: 600; /* Negrita */
+    line-height: 1.4; /* Espaciado de línea */
+    text-align: center; /* Centrar texto */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border: 1px solid transparent; /* Borde predeterminado transparente */
+    display: block; /* Asegura que ocupe su propio bloque */
+}
+
+.error-message {
+    color: #E53E3E; /* Tu variable de error */
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+    display: block; /* Asegura que ocupe su propia línea */
+}
+/* O si quieres resaltar el input */
+.input-error {
+    border-color: #E53E3E !important;
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2) !important;
+}
+
+/* Estilo para el botón de Copiar Datos */
+.btn-copiar-datos {
+    background-color: #1A365D; /* Un azul claro, puedes ajustar con una de tus variables o un color fijo */
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: var(--button-radius); /* Usando tu variable de radio de botón */
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), transform 0.15s ease, box-shadow var(--transition-fast);
+    box-shadow: 0 3px 8px rgba(49, 130, 206, 0.2);
+    margin-top: 1rem; /* Margen superior para separarlo del texto */
+    margin-bottom: 1rem; /* Margen inferior para separarlo del input */
+    display: inline-block; /* Para que no ocupe todo el ancho si no es necesario */
+    width: auto; /* Ancho automático según contenido */
+    max-width: 200px; /* Ancho máximo para pantallas grandes */
+    text-transform: uppercase; /* Opcional: texto en mayúsculas */
+    letter-spacing: 0.02em; /* Opcional: espaciado entre letras */
+    outline: none; /* Elimina el contorno al hacer focus */
+}
+
+/* Estado hover (al pasar el ratón por encima) */
+.btn-copiar-datos:hover {
+    background-color: #3182ce; /* Un tono más oscuro de azul para el hover */
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+    box-shadow: 0 5px 12px rgba(49, 130, 206, 0.3); /* Sombra más pronunciada */
+}
+
+/* Estado active (al hacer clic) */
+.btn-copiar-datos:active {
+    transform: translateY(0); /* Vuelve a la posición original */
+    box-shadow: 0 1px 3px rgba(49, 130, 206, 0.2); /* Sombra más sutil */
+}

@@ -1,0 +1,97 @@
+{
+  "nombreProducto": "Televisor Smart 50 pulgadas",
+  "descripcion": "Televisor inteligente de última generación con resolución 4K, Android TV y control de voz.",
+  "imagenUrl": "https://i.imgur.com/ejrWzXJ.jpeg",
+  "precioTicket": 3.5,
+  "totalTickets": 500,
+  "ticketsVendidos": 0,
+  "fechaFin": "2025-12-31T23:59:59.000Z",
+  "estado": "activa",
+  "ganadorTicketId": null,
+  "ganadorNombre": null,
+  "_id": "685719b211990cc51e451fce",
+  "fechaInicio": "2025-06-21T20:44:34.322Z",
+  "createdAt": "2025-06-21T20:44:34.327Z",
+  "updatedAt": "2025-06-21T20:44:34.327Z",
+  "__v": 0,
+  "porcentajeVendido": 0,
+  "id": "685719b211990cc51e451fce"
+}
+
+http://localhost:5000/api/rifas/685719b211990cc51e451fce
+
+
+
+{
+  "message": "Administrador registrado exitosamente.",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTcyNDA5MjI5MGRmOTNhNTEwZDVhYyIsImlhdCI6MTc1MDU0MTMyMiwiZXhwIjoxNzUwNTQ0OTIyfQ.4tiDP8fzcggb-5Vbmp5en0-jJxWo7XDjIYZwFrW0CJ8",
+  "admin": {
+    "id": "685724092290df93a510d5ac",
+    "nombre": "RoniCorona",
+    "email": "ronicorona2@gmail.com",
+    "rol": "admin"
+  }
+}
+
+
+{
+  "message": "Inicio de sesión exitoso.",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTcyNDA5MjI5MGRmOTNhNTEwZDVhYyIsImlhdCI6MTc1MDU0MTQzNiwiZXhwIjoxNzUwNTQ1MDM2fQ.eu__qJNPjrUqCS1vjq9P6eAe4qK9oCcsAgXfiYlli1M",
+  "admin": {
+    "id": "685724092290df93a510d5ac",
+    "nombre": "RoniCorona",
+    "email": "ronicorona2@gmail.com",
+    "rol": "admin"
+  }
+}
+
+
+JWT_SECRET=45241640626337096234028421074634
+
+68572b578f817753e1ee213d
+68572b578f817753e1ee213d
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTcyNDA5MjI5MGRmOTNhNTEwZDVhYyIsImlhdCI6MTc1MDU0Mjk4MCwiZXhwIjoxNzUwNTQ2NTgwfQ.SdeGnIXlQPVpZx2qKOsSrDdzOeXQXycDul6G4GQLy94
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "rifaId": "68572b578f817753e1ee213d",
+  "nombreComprador": "Juan Perez",
+  "emailComprador": "juan.perez@example.com",
+  "telefonoComprador": "04121234567",
+  "tipoIdentificacionComprador": null,
+  "numeroIdentificacionComprador": null,
+  "cantidadTickets": 5,
+  "montoTotal": 25,
+  "moneda": "USD",
+  "metodo": "binance",
+  "referenciaPago": "BIN123456789",
+  "comprobanteUrl": null,
+  "estado": "pendiente",
+  "_id": "685730408f817753e1ee215c",
+  "fechaPago": "2025-06-21T22:20:48.344Z",
+  "createdAt": "2025-06-21T22:20:48.345Z",
+  "updatedAt": "2025-06-21T22:20:48.345Z",
+  "__v": 0
+}
+
+vdmr qayy szoi rzom
+
+lfmg msyp dawc sepz

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+   <meta property="og:title" content="Modo Rifa - ¡Gana con nosotros!"/>
+   <meta property="og:description" content="Participa en las mejores rifas y gana increíbles premios. ¡Tu suerte te espera!"/>
+   <meta property="og:image" content="https://modorifa.com/img/logo2.png"/> <meta property="og:url" content="https://modorifa.com"/> <meta property="og:type" content="website"/>
+   <meta property="og:site_name" content="Modo Rifa"/>
+   <meta name="twitter:card" content="summary_large_image"/>
+   <meta name="twitter:title" content="Modo Rifa - ¡Gana con nosotros!"/>
+   <meta name="twitter:description" content="Participa en las mejores rifas y gana increíbles premios. ¡Tu suerte te espera!"/>
+   <meta name="twitter:image" content="https://modorifa.com/img/logo2.png"/>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Rifa &bull; Detalles
+  </title>
+  <link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet">
+  </link>
+ </head>
+ <body>
+  <header class="header-images">
+   <a href="index.html">
+    <img alt="Banner 1" src="img/logo.png"/>
+   </a>
+   <a href="index.html">
+    <img alt="Banner 2" src="img/supergana.png"/>
+   </a>
+  </header>
+  <main class="contenedor-rifa-detalle" id="seccion-rifa-detalle">
+   <div class="oculto" id="message-container">
+   </div>
+   <section class="barra-venta-general">
+    <p class="porcentaje-venta">
+     🎯
+     <span id="barraProgresoDetalle">
+      Cargando...
+     </span>
+    </p>
+    <div class="barra-global">
+     <div class="barra-global-progreso">
+     </div>
+    </div>
+   </section>
+   <h2 class="titulo-premio" id="rifaTitulo">
+    Cargando Rifa...
+   </h2>
+   <div class="imagen-producto-grande">
+    <img alt="Imagen del Producto" id="rifaImagen" src=""/>
+   </div>
+   <div class="datos-premio">
+    <div class="dato">
+     ⏱️ Inicio:
+     <span id="rifaInicioFecha">
+      ---
+     </span>
+    </div>
+    <div class="dato">
+     ⌛ Finaliza:
+     <span id="rifaFinFecha">
+      ---
+     </span>
+    </div>
+    <div class="dato">
+     💱 Tasa BCV:
+     <span id="tasaBCVDisplay">
+      Cargando...
+     </span>
+    </div>
+    <div class="dato">
+     💵 Precio ticket: $
+     <span id="rifaPrecio">
+      0.00
+     </span>
+    </div>
+   </div>
+   <section class="descripcion-rifa">
+    <h3>
+     Sobre el sorteo
+    </h3>
+    <p id="rifaDescripcion">
+     Cargando descripción del sorteo...
+    </p>
+   </section>
+   <section class="seccion-compra">
+    <h3>
+     Compra tus boletos
+    </h3>
+    <div class="botones-precio" id="precioResumen">
+     <button disabled="" id="precioTicket">
+      🎫 Precio por ticket: $
+      <span id="precioTicketDisplay">
+       0.00
+      </span>
+     </button>
+     <button disabled="" id="precioBs">
+      💵 Precio en Bs:
+      <span id="precioBsDisplay">
+       0.00
+      </span>
+      Bs
+     </button>
+    </div>
+    <div class="cantidad-comprar">
+     <button id="restar" type="button">
+      −
+     </button>
+     <input id="cantidadTickets" min="1" type="number" value="1"/>
+     <button id="sumar" type="button">
+      +
+     </button>
+    </div>
+    <div class="botones-cantidad-rapida">
+     <button data-val="2">
+      2
+     </button>
+     <button data-val="5">
+      5
+     </button>
+     <button data-val="10">
+      10
+     </button>
+     <button data-val="15">
+      15
+     </button>
+     <button data-val="20">
+      20
+     </button>
+     <button data-val="30">
+      30
+     </button>
+    </div>
+    <p class="total-a-pagar">
+     <span class="total-label">
+      Total a Pagar:
+     </span>
+     <span id="totalPagarDisplay">
+      $0.00 / VES 0.00
+     </span>
+    </p>
+    <form class="formulario-usuario">
+     <input name="nombre" placeholder="Nombre completo" required="" type="text"/>
+     <input name="telefono" placeholder="Teléfono" required="" type="tel"/>
+     <div class="cedula-grupo">
+      <select name="tipoIdentificacion" required="">
+       <option value="">
+        Tipo ID
+       </option>
+       <option value="V">
+        V
+       </option>
+       <option value="E">
+        E
+       </option>
+       <option value="J">
+        J
+       </option>
+       <option value="P">
+        P
+       </option>
+      </select>
+      <input name="numeroIdentificacion" placeholder="Número de Identificación" required="" type="text"/>
+     </div>
+     <input name="correo" placeholder="Correo electrónico" required="" type="email"/>
+     <div class="botones-form">
+      <button type="submit">
+       Siguiente ➡️
+      </button>
+      <button id="btnAtrasCompra" type="button">
+       ⬅️ Atrás
+      </button>
+     </div>
+    </form>
+   </section>
+   <section class="oculto" id="seccion-pago">
+    <h3>
+     Selecciona tu método de pago
+    </h3>
+    <div class="metodos-pago">
+     <button class="metodo" id="pagoBinance" type="button">
+      <img alt="Binance" src="img/binance.png"/>
+      <span>
+       Binance
+      </span>
+     </button>
+     <button class="metodo" id="pagoMovil" type="button">
+      <img alt="Pago Móvil" src="img/pagomovil.png"/>
+      <span>
+       Pago Móvil
+      </span>
+     </button>
+     <button class="metodo" id="pagoZelle" type="button">
+      <img alt="Zelle" src="img/zelle.png"/>
+      <span>
+       Zelle
+      </span>
+     </button>
+    </div>
+    <div class="detalles-pago oculto" id="detalles-pago">
+     <div id="detalles-dinamicos-pago">
+     </div>
+     <div class="oculto" id="formulario-comprobante">
+      <h4>
+       Subir Comprobante de Pago
+      </h4>
+      <p>
+       Por favor, sube una imagen o PDF de tu comprobante de pago.
+      </p>
+      <label for="referenciaBinance" style="display: none;">Referencia / ID de la Transacción:</label>
+      <input type="text" id="referenciaBinance" name="referenciaPago" placeholder="ID de la transacción Binance" required style="display: none;"/>
+
+      <label for="referenciaPagoMovil" style="display: none;">Últimos 6 dígitos de la referencia bancaria:</label>
+      <input type="text" id="referenciaPagoMovil" name="referenciaPago" maxlength="6" pattern="\d{6}" placeholder="Ej: 123456" required style="display: none;"/>
+
+      <label for="referenciaZelle" style="display: none;">Confirmación o Nombre de Envío:</label>
+      <input type="text" id="referenciaZelle" name="referenciaPago" placeholder="ID o Nombre de la transacción" required style="display: none;"/>
+
+      <input accept="image/*" id="comprobantePago" name="comprobante" type="file"/>
+     </div>
+    </div>
+    <div class="botones-form">
+     <button id="siguienteMetodo" type="button" class="btn-primary">
+        <span>Finalizar ➡️</span>
+        <span class="spinner"></span>
+     </button>
+     <button id="atrasMetodo" type="button">
+      ⬅️ Atrás
+     </button>
+    </div>
+   </section>
+   <section class="oculto" id="seccion-final">
+    <div class="final-card">
+     <div class="icono-check">
+      ✅
+     </div>
+     <h2>
+      ¡Gracias,
+      <span id="nombreConfirmacion">
+       [Nombre]
+      </span>
+      !
+      <br/>
+      Tus boletos han sido reservados 🎟️
+     </h2>
+     <div class="resumen-final">
+      <p>
+       <strong>
+        Nombre:
+       </strong>
+       <span id="datoNombre">
+       </span>
+      </p>
+      <p>
+       <strong>
+        Correo:
+       </strong>
+       <span id="datoCorreo">
+       </span>
+      </p>
+      <p>
+       <strong>
+        Teléfono:
+       </strong>
+       <span id="datoTelefono">
+       </span>
+      </p>
+      <p>
+       <strong>
+        Método de pago:
+       </strong>
+       <span id="datoMetodo">
+       </span>
+      </p>
+      <p>
+       <strong>
+        Cantidad de boletos:
+       </strong>
+       <span id="datoCantidad">
+       </span>
+      </p>
+     </div>
+     <div class="boletos-asignados" id="boletosAsignados">
+     </div>
+     <p class="mensaje-correo">
+      📬 Te enviaremos la confirmación al correo que ingresaste,
+      junto con tus números asignados una vez hayamos verificado tu pago.
+     </p>
+     <button class="btn-volver-inicio" onclick="window.location.href = 'index.html'">
+      🔁 Volver al inicio
+     </button>
+    </div>
+   </section>
+   <div class="modal oculto" id="modalTerminos">
+    <div class="modal-contenido terminos">
+     <h2>
+      Términos y Condiciones de la Rifa
+     </h2>
+     <div class="terminos-texto">
+      <p>
+       Bienvenido/a a Modo Rifa, Por favor leer detalladamente todos los términos.:
+      </p>
+      <ol>
+       <li>
+        <strong>
+         Edad Mínima:
+        </strong>
+        Debe ser mayor de 18 años para participar.
+       </li>
+       <li>
+        <strong>
+         Ticket:
+        </strong>
+        La compra mínima es de (2) tickets. Los tickets se asignan de forma aleatoria y serán enviados al correo electrónico proporcionado una vez su compra haya sido aprobada.
+       </li>
+       <li>
+        <strong>
+         No Reembolsable:
+        </strong>
+        Debe transferir el monto exacto, no se realizan
+        reembolsos por montos erróneos, de haber una diferencia se realizará el reembolso solamente con tickets.
+       </li>
+       <li>
+        <strong>
+         Sorteo:
+        </strong>
+        Los tickets ganadores serán seleccionados por la Lotería del Táchira “Super Gana” en la fecha y hora correspondiente al sorteo indicado en la rifa.
+       </li>
+       <li>
+        <strong>
+         Notificación:
+        </strong>
+        Los ganadores serán notificados por correo electrónico y/o teléfono. Es tu responsabilidad proporcionar información de contacto
+        correcta.
+       </li>
+       <li>
+        <strong>
+         Privacidad:
+        </strong>
+        Nos comprometemos a proteger tu información personal y no la compartiremos con terceros.
+       </li>
+       <li>
+        <strong>
+         Entrega de premio:
+        </strong>
+        Para realizar la entrega será estipulado previamente según el concurso que corresponda por redes sociales. La persona ganadora tiene un plazo de 72 horas para comunicarse y proporcionar sus datos para la entrega del premio.
+       </li>
+      </ol>
+      <p>
+       Los ganadores aceptan y autorizan la aparición en el material audiovisual del
+       sorteo de MODORIFA.COM, incluyendo su presencia en redes sociales y la entrega del premio. Ésta condición es obligatoria. Al hacer clic en
+       <strong>
+        ACEPTO
+       </strong>
+       , confirmas que has leído y estás de acuerdo con todos los términos y condiciones.
+      </p>
+     </div>
+     <div class="acciones-modal">
+      <button class="btn-rechazar" id="btnRechazarTerminos">
+       No Acepto, Salir
+      </button>
+      <button class="btn-aceptar" id="btnAceptarTerminos">
+       Acepto
+      </button>
+     </div>
+    </div>
+   </div>
+  </main> <div class="modal-tickets oculto" id="modalTickets">
+   <div class="modal-contenido">
+    <span class="cerrar-modal">
+     ×
+    </span>
+    <h4>
+     Consultar mis tickets
+    </h4>
+    <p>
+     Ingresa tu correo electrónico para ver los tickets asociados a tus compras.
+    </p>
+    <form id="formConsultarTickets">
+     <label for="correoConsulta">
+      Correo Electrónico:
+     </label>
+     <input id="correoConsulta" placeholder="tu@ejemplo.com" required="" type="email"/>
+     <button type="submit">
+      Consultar
+     </button>
+    </form>
+    <div class="resultados-consulta" id="resultados-consulta-tickets">
+    </div>
+   </div>
+  </div>
+
+  <footer>
+   <div class="footer-social-media">
+    <h3>
+     Síguenos en nuestras redes
+    </h3>
+    <div class="social-icons">
+     <a aria-label="Instagram" href="https://www.instagram.com/modorifa.ve?igsh=MTNhYmZuYXV3bzVsNg%3D%3D&utm_source=qr" target="_blank">
+      <img alt="Instagram" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"/>
+     </a>
+     <a aria-label="Facebook" href="#" target="_blank">
+      <img alt="Facebook" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_(2019).svg"/>
+     </a>
+     <a aria-label="WhatsApp" href="https://wa.me/+584223548530" target="_blank">
+      <img alt="WhatsApp" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"/>
+     </a>
+    </div>
+   </div>
+   <p>
+    © 2025 Modo Rifa • Todos los derechos reservados
+   </p>
+  </footer>
+
+  <script src="script.js">
+  </script>
+ </body>
+</html>

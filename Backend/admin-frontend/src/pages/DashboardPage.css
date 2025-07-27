@@ -1,0 +1,533 @@
+/* src/pages/DashboardPage.css */
+
+/* Variables CSS para colores y espaciado */
+:root {
+    --primary-blue: #3b82f6;
+    --primary-blue-dark: #2563eb;
+    --secondary-green: #22c55e;
+    --secondary-green-dark: #16a34a;
+    --accent-purple: #a855f7;
+    --accent-purple-dark: #9333ea;
+    --danger-red: #ef4444;
+    --danger-red-dark: #dc2626;
+    --text-dark: #2c3e50;
+    --text-medium: #495057;
+    --text-light: #6c757d;
+    --bg-light: #f8f9fa;
+    --bg-medium: #e2e8f0;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --border-radius: 12px;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+}
+
+/* Estilos globales del contenedor del dashboard */
+.dashboard-container {
+    background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec); /* Degradado suave */
+    min-height: 100vh;
+    padding: var(--spacing-lg) var(--spacing-sm); /* Padding responsivo */
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center; /* Centra el contenido */
+    align-items: flex-start; /* Alinea al inicio verticalmente */
+    overflow-x: hidden; /* ¡EVITA BARRAS HORIZONTALES! */
+}
+
+/* Contenedor principal del contenido para limitar el ancho y centrar */
+.dashboard-content-wrapper {
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    padding: 0 var(--spacing-sm); /* Padding horizontal para evitar que el contenido toque los bordes */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+/* Estilos del encabezado del dashboard */
+.dashboard-header {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    flex-direction: column; /* Apila elementos en móvil */
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-md); /* Espacio entre elementos del header */
+}
+
+.dashboard-title {
+    font-size: 2.2rem; /* Tamaño de fuente responsivo */
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Permite que el título se ajuste en varias líneas */
+    justify-content: center;
+}
+
+.dashboard-title span {
+    color: var(--primary-blue);
+}
+
+.welcome-message {
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-md);
+    max-width: 800px;
+    line-height: 1.5;
+}
+
+.welcome-message span {
+    font-weight: 600;
+    color: var(--primary-blue-dark);
+}
+
+.header-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas pequeñas */
+    justify-content: center;
+    gap: 0.8rem; /* Espacio entre botones */
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.header-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    font-size: 0.95rem; /* Ajuste de tamaño de fuente */
+    flex-grow: 1; /* Permite que los botones crezcan para llenar el espacio */
+    justify-content: center; /* Centra el contenido del botón */
+    min-width: 150px; /* Ancho mínimo para evitar que se aplasten demasiado */
+}
+
+.header-btn:hover {
+    background-color: var(--primary-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Colores específicos para los botones del header */
+.header-btn.rifas { background-color: #607d8b; } /* Azul grisáceo */
+.header-btn.rifas:hover { background-color: #546e7a; }
+.header-btn.pagos { background-color: #4CAF50; } /* Verde */
+.header-btn.pagos:hover { background-color: #388E3C; }
+.header-btn.admin-users { background-color: #9c27b0; } /* Morado */
+.header-btn.admin-users:hover { background-color: #7b1fa2; }
+.header-btn.logout { background-color: #f44336; } /* Rojo */
+.header-btn.logout:hover { background-color: #D32F2F; }
+
+
+/* Estilos para todas las secciones de tarjetas */
+.section-card-container {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card-container:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.section-title {
+    font-size: 1.5rem; /* Tamaño de fuente responsivo */
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Grids para las tarjetas de estadísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ajuste automático de columnas */
+    gap: var(--spacing-md);
+}
+
+.stats-grid-2cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste para 2 columnas */
+    gap: var(--spacing-md);
+}
+
+.stats-grid-3cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste para 3 columnas */
+    gap: var(--spacing-md);
+}
+
+/* Estilos de las tarjetas individuales (DashboardCard) */
+.dashboard-card {
+    position: relative;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    color: white; /* Color de texto por defecto para tarjetas de color */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px; /* Altura mínima para consistencia */
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card-content {
+    z-index: 1; /* Asegura que el contenido esté sobre el ícono de fondo */
+}
+
+.dashboard-card-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.dashboard-card-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.dashboard-card-icon-bg {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    font-size: 4.5rem;
+    opacity: 0.2;
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 0;
+}
+
+/* Clases de color para las tarjetas (basadas en los colores de Tailwind) */
+.card-blue { background: linear-gradient(to bottom right, #3b82f6, #2563eb); }
+.card-green { background: linear-gradient(to bottom right, #22c55e, #16a34a); }
+.card-purple { background: linear-gradient(to bottom right, #a855f7, #9333ea); }
+.card-red { background: linear-gradient(to bottom right, #ef4444, #dc2626); }
+.card-indigo { background: linear-gradient(to bottom right, #6366f1, #4f46e5); }
+.card-yellow { background: linear-gradient(to bottom right, #f59e0b, #d97706); }
+.card-orange { background: linear-gradient(to bottom right, #f97316, #ea580c); }
+.card-teal { background: linear-gradient(to bottom right, #14b8a6, #0d9488); }
+.card-gray { background: linear-gradient(to bottom right, #6b7280, #4b5563); }
+.card-pink { background: linear-gradient(to bottom right, #ec4899, #db2777); }
+.card-dark-green { background: linear-gradient(to bottom right, #059669, #047857); } /* Nuevo color para VES */
+.card-default { background: linear-gradient(to bottom right, #94a3b8, #64748b); } /* Color por defecto */
+
+
+/* Estilos para las subsecciones (Tickets y Recaudación) */
+.subsection-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto */
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.sub-section-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: var(--spacing-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sub-section-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+
+/* Estilos para la sección de gráficos */
+.charts-section {
+    padding: var(--spacing-md); /* Ajuste de padding */
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: var(--spacing-lg);
+}
+
+.chart-container-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: var(--spacing-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 350px; /* Altura mínima para los gráficos */
+    display: flex;
+    flex-direction: column;
+}
+.chart-container-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.chart-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.chart-wrapper {
+    flex-grow: 1; /* Permite que el gráfico ocupe el espacio disponible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Necesario para que el gráfico se expanda */
+}
+
+.no-chart-data-message {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--text-light);
+    font-style: italic;
+}
+
+
+/* Estilos del botón flotante "Volver Atrás" */
+.back-button-container-fixed {
+    position: fixed; /* Fijo en la pantalla */
+    bottom: var(--spacing-lg); /* 2rem del fondo */
+    left: 50%;
+    transform: translateX(-50%); /* Centrar horizontalmente */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.back-button-fixed {
+    background-color: #607d8b; /* Azul grisáceo */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada para flotar */
+}
+
+.back-button-fixed:hover {
+    background-color: #546e7a;
+    transform: translateY(-3px) translateX(-50%); /* Efecto de elevación al centrar */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para pantallas de carga y error */
+.loading-screen, .error-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    color: var(--text-dark);
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.loading-spinner {
+    font-size: 4rem;
+    color: var(--primary-blue);
+    animation: spin 1s linear infinite;
+    margin-bottom: var(--spacing-md);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-medium);
+}
+
+.error-icon {
+    font-size: 4rem;
+    color: var(--danger-red);
+    margin-bottom: var(--spacing-md);
+}
+
+.error-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    font-size: 1.2rem;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-lg);
+    max-width: 600px;
+}
+
+.no-data-icon {
+    color: var(--accent-purple);
+    opacity: 0.7;
+}
+
+.no-data-title {
+    color: var(--accent-purple-dark);
+}
+
+.no-data-message-text {
+    color: var(--accent-purple);
+}
+
+.action-button {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover {
+    background-color: var(--primary-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.action-button.reload {
+    background-color: #607d8b;
+}
+
+.action-button.reload:hover {
+    background-color: #546e7a;
+}
+
+.action-button.login {
+    background-color: #4CAF50;
+}
+
+.action-button.login:hover {
+    background-color: #388E3C;
+}
+
+
+/* --- Media Queries para Responsividad --- */
+
+/* Tabletas (768px y más) */
+@media (min-width: 768px) {
+    .dashboard-header {
+        flex-direction: row; /* Elementos en fila */
+        justify-content: space-between;
+        text-align: left;
+        padding: var(--spacing-lg) var(--spacing-xl); /* Más padding en tabletas */
+    }
+
+    .dashboard-title {
+        font-size: 2.8rem;
+        justify-content: flex-start;
+    }
+
+    .welcome-message {
+        font-size: 1.1rem;
+        margin-bottom: 0; /* Elimina margen inferior si está en fila */
+        text-align: left;
+    }
+
+    .header-buttons {
+        flex-wrap: nowrap; /* Evita que los botones se envuelvan si hay espacio */
+        justify-content: flex-end;
+        flex-grow: 0; /* No crecen para llenar el espacio */
+    }
+
+    .header-btn {
+        flex-grow: 0; /* No crecen para llenar el espacio */
+        min-width: unset; /* Reinicia el ancho mínimo */
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Más columnas */
+    }
+
+    .subsection-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas */
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas */
+    }
+
+    .dashboard-title {
+        font-size: 2.8rem;
+    }
+}
+
+/* Escritorio (1024px y más) */
+@media (min-width: 1024px) {
+    .dashboard-container {
+        padding: var(--spacing-lg) var(--spacing-lg);
+    }
+    .dashboard-content-wrapper {
+        padding: 0; /* No necesita padding horizontal extra en desktop */
+    }
+
+    .dashboard-title {
+        font-size: 3.2rem;
+    }
+
+    .header-buttons {
+        gap: 1rem; /* Más espacio entre botones */
+    }
+
+    .header-btn {
+        padding: 12px 22px;
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .dashboard-card-value {
+        font-size: 2.5rem;
+    }
+
+    .dashboard-card-icon-bg {
+        font-size: 5.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas fijas si el contenido lo permite */
+    }
+
+    .stats-grid-3cols {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas si el contenido lo permite */
+    }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rifas Online</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a la Gran Rifa</h1>
+        <p>Participa, selecciona tus números y gana increíbles premios</p>
+    </header>
+
+    <main>
+        <section id="rifas-disponibles">
+            <h2>Rifas disponibles</h2>
+
+            <div class="contenedor-rifas">
+
+                <div class="rifa-card" data-raffle="tv50">
+    <div class="header-card-info"> 
+        <div class="progreso">🎯 60 % vendido</div>
+        <div class="barra-container">
+            <div class="barra-progreso" style="width:60%"></div>
+        </div>
+        <h3 class="titulo-producto-rifa">TV Smart 50 pulgadas</h3>
+    </div>
+    <div class="imagen-rifa">
+        <img src="https://m.media-amazon.com/images/I/51n4lGI+-OL.jpg" alt="TV Smart 50 pulgadas">
+    </div>
+    <div class="acciones">
+        <a href="rifa.html" class="btn-comprar" id="comprar-tv50">Comprar Números</a>
+        <button class="ver-tickets js-abrir-modal-tickets">Ver Tickets</button>
+    </div>
+</div>
+
+<div class="rifa-card" data-raffle="iphone14">
+    <div class="header-card-info">
+        <div class="progreso">🎁 85 % vendido</div>
+        <div class="barra-container">
+            <div class="barra-progreso" style="width:85%"></div>
+        </div>
+        <h3 class="titulo-producto-rifa">iPhone 14</h3>
+    </div>
+    <div class="imagen-rifa">
+        <img src="https://miportal.entel.cl/static/060520251314564/images/iphone-16-ultramarino-01_337x671.jpg" alt="iPhone 14">
+    </div>
+    <div class="acciones">
+        <a href="rifa.html" class="btn-comprar" id="comprar-iphone14">Comprar Números</a>
+        <button class="ver-tickets js-abrir-modal-tickets">Ver Tickets</button>
+    </div>
+</div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="modalTickets" class="modal oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h2>Consultar mis Tickets</h2>
+            <p>Ingresa tu correo electrónico para ver los tickets asociados a tus compras.</p>
+            <form id="formConsultarTickets">
+                <label for="correoConsulta">Correo Electrónico:</label>
+                <input type="email" id="correoConsulta" placeholder="tu@ejemplo.com" required>
+                <button type="submit">Consultar Tickets</button>
+            </form>
+            <div id="resultados-consulta-tickets" style="margin-top: 1rem; text-align: left;">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Gracias por participar en nuestras rifas 🎉</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

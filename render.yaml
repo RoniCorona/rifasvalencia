@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: rifas-app
+    env: node
+    plan: free
+    rootDir: backend
+    # ⚠️ El buildCommand está comentado porque ya hiciste el build localmente y lo subiste
+    # buildCommand: |
+    #   echo "📦 Instalando dependencias de admin-frontend..."
+    #   npm --prefix admin-frontend install
+    #
+    #   echo "🏗️ Ejecutando build del panel admin con Vite..."
+    #   npm --prefix admin-frontend run build
+    #
+    #   echo "📂 Asegurando carpeta destino..."
+    #   mkdir -p admin
+    #
+    #   echo "🧹 Limpiando carpeta admin antigua..."
+    #   rm -rf admin/*
+    #
+    #   echo "📋 Copiando build de dist a backend/admin..."
+    #   cp -r admin-frontend/dist/* admin/
+    startCommand: node server.js
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://RoniCorona:22121997@rifascluster.iqlewr4.mongodb.net/RifasDB?retryWrites=true&w=majority&appName=RifasCluster
+      - key: PORT
+        value: 10000
+      - key: ALLOWED_ORIGINS
+        value: https://rifas-app.onrender.com/api,http://localhost:5000
+    buildFilter:
+      paths:
+        - backend/**
+        - index.html
+        - rifa.html
+        - script.js
+    autoDeploy: true

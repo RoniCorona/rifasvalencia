@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rifa • Detalles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>Participa en la Rifa</h1>
+    </header>
+
+    <main class="contenedor-rifa-detalle" id="seccion-rifa-detalle">
+        <div id="message-container" class="oculto"></div>
+
+        <section class="barra-venta-general">
+            <p class="porcentaje-venta">🎯 <span id="barraProgresoDetalle">Cargando...</span></p>
+            <div class="barra-global">
+                <div class="barra-global-progreso"></div>
+            </div>
+        </section>
+
+        <h2 class="titulo-premio" id="rifaTitulo">Cargando Rifa...</h2>
+        <div class="imagen-producto-grande">
+            <img src="" alt="Imagen del Producto" id="rifaImagen" />
+        </div>
+
+        <div class="datos-premio">
+            <div class="dato">📅 Sorteo: <span id="rifaSorteoFecha">---</span></div>
+            <div class="dato">⏱️ Inicio: <span id="rifaInicioFecha">---</span></div>
+            <div class="dato">⌛ Finaliza: <span id="rifaFinFecha">---</span></div>
+            <div class="dato">🎟️ Tickets Totales: <span id="totalTickets">0</span></div>
+            <div class="dato">✅ Tickets Vendidos: <span id="ticketsVendidos">0</span></div>
+            <div class="dato">🎟️ Tickets Disponibles: <span id="ticketsDisponibles">0</span></div>
+            <div class="dato">💱 Tasa BCV: <span id="tasaBCVDisplay">Cargando...</span></div>
+            <div class="dato">💵 Precio ticket: $<span id="rifaPrecio">0.00</span></div>
+        </div>
+
+        <section class="descripcion-rifa">
+            <h3>Sobre el sorteo</h3>
+            <p id="rifaDescripcion">Cargando descripción del sorteo...</p>
+        </section>
+
+        <section class="seccion-compra">
+            <h3>Compra tus boletos</h3>
+
+            <div class="botones-precio" id="precioResumen">
+                <button id="precioTicket" disabled>🎫 Precio por ticket: $<span id="precioTicketDisplay">0.00</span></button>
+                <button id="precioBs" disabled>💵 Precio en Bs: <span id="precioBsDisplay">0.00</span> Bs</button>
+            </div>
+
+            <div class="cantidad-comprar">
+                <button id="restar" type="button">−</button>
+                <input id="cantidadTickets" type="number" value="1" min="1" />
+                <button id="sumar" type="button">+</button>
+            </div>
+
+            <div class="botones-cantidad-rapida">
+                <button data-val="2">2</button>
+                <button data-val="5">5</button>
+                <button data-val="10">10</button>
+                <button data-val="15">15</button>
+                <button data-val="20">20</button>
+                <button data-val="30">30</button>
+            </div>
+
+            <p class="total-a-pagar">
+    <span class="total-label">Total a Pagar:</span> <span id="totalPagarDisplay">$0.00 / VES 0.00</span>
+</p>
+
+
+            <form class="formulario-usuario">
+                <input type="text" placeholder="Nombre completo" required name="nombre" />
+                <input type="tel" placeholder="Teléfono" required name="telefono" />
+
+                <div class="cedula-grupo">
+                    <select required name="tipoIdentificacion">
+                        <option value="">Tipo ID</option>
+                        <option value="V">V</option>
+                        <option value="E">E</option>
+                        <option value="J">J</option>
+                        <option value="P">P</option>
+                    </select>
+                    <input type="text" placeholder="Número de Identificación" required name="numeroIdentificacion" />
+                </div>
+
+                <input type="email" placeholder="Correo electrónico" required name="correo" />
+
+                <div class="botones-form">
+                    <button type="button" id="btnAtrasCompra">⬅️ Atrás</button>
+                    <button type="submit">Siguiente ➡️</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="seccion-pago" class="oculto">
+            <h3>Selecciona tu método de pago</h3>
+
+            <div class="metodos-pago">
+                <button class="metodo" id="pagoBinance" type="button">
+                    <img src="img/binance.png" alt="Binance" />
+                    <span>Binance</span>
+                </button>
+
+                <button class="metodo" id="pagoMovil" type="button">
+                    <img src="img/pagomovil.png" alt="Pago Móvil" />
+                    <span>Pago Móvil</span>
+                </button>
+
+                <button class="metodo" id="pagoZelle" type="button">
+                    <img src="img/zelle.png" alt="Zelle" /> <span>Zelle</span>
+                    <span>Zelle</span>
+                </button>
+            </div>
+
+            <div id="detalles-pago" class="detalles-pago oculto"></div>
+
+            <div class="botones-form">
+                <button type="button" id="atrasMetodo">⬅️ Atrás</button>
+                <button type="button" id="siguienteMetodo">Finalizar ➡️</button>
+            </div>
+        </section>
+
+        <section id="seccion-final" class="oculto">
+            <div class="final-card">
+                <div class="icono-check">✅</div>
+                <h2>
+                    ¡Gracias, <span id="nombreConfirmacion">[Nombre]</span>!<br />
+                    Tus boletos han sido reservados 🎟️
+                </h2>
+
+                <div class="resumen-final">
+                    <p><strong>Nombre:</strong> <span id="datoNombre"></span></p>
+                    <p><strong>Correo:</strong> <span id="datoCorreo"></span></p>
+                    <p><strong>Teléfono:</strong> <span id="datoTelefono"></span></p>
+                    <p><strong>Método de pago:</strong> <span id="datoMetodo"></span></p>
+                    <p><strong>Cantidad de boletos:</strong> <span id="datoCantidad"></span></p>
+                </div>
+
+                <div class="boletos-asignados" id="boletosAsignados">
+                </div>
+
+                <p class="mensaje-correo">
+                    📬 Te enviaremos la confirmación al correo que ingresaste,
+                    junto con tus números asignados.
+                </p>
+
+                <button class="btn-volver-inicio" onclick="window.location.href = 'index.html'">🔁 Volver al inicio</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Roni Rifas • Todos los derechos reservados</p>
+    </footer>
+
+    <div id="modalTickets" class="modal-tickets oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h4>Consultar mis tickets</h4>
+            <form id="formConsultarTickets">
+                <input type="email" id="correoConsulta" placeholder="Ingresa tu correo electrónico" required />
+                <button type="submit">Consultar</button>
+            </form>
+            <div id="resultados-consulta-tickets" class="resultados-consulta">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

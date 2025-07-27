@@ -1,0 +1,166 @@
+<!-- ─────────────────────────────  rifa.html  ───────────────────────────── -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rifa • PlayStation 5 Digital Edition</title>
+
+  <!-- ➊  Tu hoja de estilos externa -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ╔═════════════════════  ENCABEZADO  ═════════════════════╗ -->
+  <header>
+    <h1>Participa en la Rifa</h1>
+  </header>
+
+  <main class="contenedor-rifa-detalle">
+    <!-- Progreso de venta -->
+    <section class="barra-venta-general">
+      <p class="porcentaje-venta">🎯 72 % vendido</p>
+      <div class="barra-global">
+        <div class="barra-global-progreso" style="width:72%;"></div>
+      </div>
+    </section>
+
+    <!-- Producto -->
+    <h2 class="titulo-premio">PlayStation 5 – Edición Digital</h2>
+    <div class="imagen-producto-grande">
+      <img src="img/playstation5.jpg" alt="PlayStation 5" />
+    </div>
+
+    <!-- Datos del sorteo (COMPLETO) -->
+    <div class="datos-premio">
+      <div class="dato">📅 Sorteo:            <span>30/06/2025 – 18:00</span></div>
+      <div class="dato">⏱️ Inicio:            <span>01/06/2025 – 08:00</span></div>
+      <div class="dato">⌛ Finaliza:          <span>29/06/2025 – 23:59</span></div>
+      <div class="dato">🎟️ N.º disponibles:  <span>2 800</span></div>
+      <div class="dato">💱 Tasa BCV:          <span>38,50 Bs/USD</span></div>
+      <div class="dato">💵 Precio ticket:    <span>$ 2,50</span></div>
+    </div>
+
+    <!-- Descripción -->
+    <section class="descripcion-rifa">
+      <h3>Sobre el sorteo</h3>
+      <p>
+        Participa para ganar una PS5 Digital completamente nueva. Cada boleto cuesta
+        $ 2,50 y puedes pagar vía Binance o Pago Móvil.
+      </p>
+    </section>
+
+    <!-- ╔═══════════════  SECCIÓN COMPRA  ═══════════════╗ -->
+    <section class="seccion-compra">
+      <h3>Compra tus boletos</h3>
+
+      <!-- Resumen de precios (BOTONES COMPLETOS) -->
+      <div class="botones-precio" id="precioResumen">
+        <button id="precioTicket" disabled>🎫 Precio por ticket: $ 2,50</button>
+        <button id="precioBs"     disabled>💵 Precio en Bs: 96,25 Bs</button>
+      </div>
+
+      <!-- Selector de cantidad -->
+      <div class="cantidad-comprar">
+        <button id="restar" type="button">−</button>
+        <input  id="cantidadTickets" type="number" value="1" min="1" />
+        <button id="sumar"  type="button">+</button>
+      </div>
+
+      <!-- Atajos de cantidad -->
+      <div class="botones-cantidad-rapida">
+        <button data-val="2">2</button>
+        <button data-val="5">5</button>
+        <button data-val="10">10</button>
+        <button data-val="15">15</button>
+        <button data-val="20">20</button>
+        <button data-val="30">30</button>
+      </div>
+
+      <!-- Datos del participante -->
+      <form class="formulario-usuario">
+        <input type="text" placeholder="Nombre completo" required />
+        <input type="tel"  placeholder="Teléfono"        required />
+
+        <div class="cedula-grupo">
+          <select required>
+            <option value="">Tipo</option>
+            <option value="V">V</option>
+            <option value="E">E</option>
+            <option value="J">J</option>
+          </select>
+          <input type="text" placeholder="Cédula de identidad" required />
+        </div>
+
+        <input type="email" placeholder="Correo electrónico" required />
+
+        <div class="botones-form">
+          <button type="button">⬅️ Atrás</button>
+          <button type="submit">Siguiente ➡️</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ╔══════════  SECCIÓN MÉTODO DE PAGO  ══════════╗ -->
+    <section id="seccion-pago" class="oculto">
+      <h3>Selecciona tu método de pago</h3>
+
+      <div class="metodos-pago">
+        <button class="metodo" id="pagoBinance" type="button">
+          <img src="img/binance.png" alt="Binance" />
+          <span>Binance</span>
+        </button>
+
+        <button class="metodo" id="pagoMovil" type="button">
+          <img src="img/pagomovil.png" alt="Pago Móvil" />
+          <span>Pago Móvil</span>
+        </button>
+      </div>
+
+      <!-- detalles dinámicos -->
+      <div id="detalles-pago" class="detalles-pago oculto"></div>
+
+      <div class="botones-form">
+        <button type="button" id="atrasMetodo">⬅️ Atrás</button>
+        <button type="button" id="siguienteMetodo">Finalizar ➡️</button>
+      </div>
+    </section>
+
+    <!-- ╔══════════  SECCIÓN FINAL (tu bloque)  ══════════╗ -->
+    <section id="seccion-final" class="oculto">
+      <div class="final-card">
+        <div class="icono-check">✅</div>
+        <h2>
+          ¡Gracias, <span id="nombreConfirmacion">[Nombre]</span>!<br />
+          Tus boletos han sido reservados 🎟️
+        </h2>
+
+        <div class="resumen-final">
+          <p><strong>Nombre:</strong> <span id="datoNombre"></span></p>
+          <p><strong>Correo:</strong> <span id="datoCorreo"></span></p>
+          <p><strong>Teléfono:</strong> <span id="datoTelefono"></span></p>
+          <p><strong>Método de pago:</strong> <span id="datoMetodo"></span></p>
+          <p><strong>Cantidad de boletos:</strong> <span id="datoCantidad"></span></p>
+        </div>
+
+        <div class="boletos-asignados" id="boletosAsignados">
+          <!-- tarjetas de boletos se insertan por JS -->
+        </div>
+
+        <p class="mensaje-correo">
+          📬 Te enviaremos la confirmación al correo que ingresaste,
+          junto con tus números asignados.
+        </p>
+
+        <button onclick="location.reload()">🔁 Volver al inicio</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Roni Rifas • Todos los derechos reservados</p>
+  </footer>
+
+  <!-- ➋  Lógica en archivo externo -->
+  <script src="script.js"></script>
+</body>
+</html>

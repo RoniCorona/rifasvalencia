@@ -1,0 +1,304 @@
+/* src/pages/ManageAdminsPage.css (Crea este nuevo archivo) */
+
+.manage-admins-container {
+    padding: 30px;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #f0f4f8, #e2e8f0); /* Fondo suave */
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+.manage-admins-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #cbd5e0;
+}
+
+.manage-admins-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50; /* Un azul oscuro para el título */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.manage-admins-title span {
+    color: #3b82f6; /* Azul brillante */
+}
+
+.back-button {
+    background-color: #607d8b; /* Azul grisáceo */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+    background-color: #546e7a;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos de las secciones (similares a las section-card-container del dashboard) */
+.section-card-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #34495e; /* Un gris azulado oscuro */
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eceff1;
+    padding-bottom: 15px;
+}
+
+/* Estilos del formulario */
+.admin-form .form-group {
+    margin-bottom: 20px;
+}
+
+.admin-form label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="email"],
+.admin-form input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-form input[type="text"]:focus,
+.admin-form input[type="email"]:focus,
+.admin-form input[type="password"]:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    outline: none;
+}
+
+.submit-btn {
+    background-color: #3b82f6; /* Azul primario */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos de la tabla de administradores */
+.admins-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admins-table th,
+.admins-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.admins-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.admins-table tbody tr:hover {
+    background-color: #f0f2f5;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.edit-btn {
+    color: #4CAF50; /* Green */
+}
+.edit-btn:hover {
+    color: #388E3C;
+}
+
+.delete-btn {
+    color: #f44336; /* Red */
+}
+.delete-btn:hover {
+    color: #D32F2F;
+}
+
+/* Mensajes de feedback */
+.message-alert {
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.message-alert.success {
+    background-color: #e6ffed;
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.message-alert.error {
+    background-color: #ffe6e6;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+/* Estilos para "no hay datos" */
+.no-data-message {
+    text-align: center;
+    padding: 30px;
+    font-size: 1.1rem;
+    color: #777;
+    background-color: #fdfdff;
+    border-radius: 8px;
+    border: 1px dashed #e0e0e0;
+}
+
+/* Pantallas de carga y error - Asegúrate de que estos estilos estén en tu CSS global o aquí */
+.loading-screen, .error-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8; /* Light background */
+    color: #555;
+    text-align: center;
+    padding: 20px;
+}
+
+.loading-spinner {
+    font-size: 4rem;
+    color: #3b82f6; /* Blue */
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.error-icon {
+    font-size: 4rem;
+    color: #ef4444; /* Red */
+    margin-bottom: 20px;
+}
+
+.error-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.error-message {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.action-button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.action-button.reload {
+    background-color: #607d8b; /* Grey-blue for reload/retry */
+}
+
+.action-button.reload:hover {
+    background-color: #546e7a;
+}
+
+.action-button.login {
+    background-color: #4CAF50; /* Green for login */
+}
+
+.action-button.login:hover {
+    background-color: #388E3C;
+}

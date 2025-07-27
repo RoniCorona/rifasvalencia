@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta property="og:title" content="Modo Rifa - ¡Gana con nosotros!"/>
+    <meta property="og:description" content="Participa en las mejores rifas y gana increíbles premios. ¡Tu suerte te espera!"/>
+    <meta property="og:image" content="https://modorifa.com/img/logo2.png"/> <meta property="og:url" content="https://modorifa.com"/> <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="Modo Rifa"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Modo Rifa - ¡Gana con nosotros!"/>
+    <meta name="twitter:description" content="Participa en las mejores rifas y gana increíbles premios. ¡Tu suerte te espera!"/>
+    <meta name="twitter:image" content="https://modorifa.com/img/logo2.png"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modo Rifa</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="header-images">
+    <a href="index.html">
+        <img src="img/logo.png" alt="Banner 1" />
+    </a>
+    <a href="index.html">
+        <img src="img/supergana.png" alt="Banner 2" />
+    </a>
+</header>
+
+    </header>
+
+    <main>
+        <section id="rifas-disponibles">
+            <h2>Rifas disponibles</h2>
+            <div class="contenedor-rifas" id="contenedorRifas">
+                <p>Cargando rifas...</p> 
+            </div>
+        </section>
+    </main>
+
+    <div id="modalTickets" class="modal oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h2>Consultar mis Tickets</h2>
+            <p>Ingresa tu correo electrónico para ver los tickets asociados a tus compras.</p>
+            <form id="formConsultarTickets">
+                <label for="correoConsulta">Correo Electrónico:</label>
+                <input type="email" id="correoConsulta" placeholder="tu@ejemplo.com" required>
+                <button type="submit">Consultar Tickets</button>
+            </form>
+            <div id="resultados-consulta-tickets" style="margin-top: 1rem; text-align: left;">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-social-media">
+            <h3>Síguenos en nuestras redes</h3>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/modorifa.ve?igsh=MTNhYmZuYXV3bzVsNg%3D%3D&utm_source=qr" target="_blank" aria-label="Instagram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/tucuenta" target="_blank" aria-label="Facebook">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                </a>
+                <a href="https://wa.me/+584223548530" target="_blank" aria-label="WhatsApp">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                </a>
+            </div>
+        </div>
+        <p>Gracias por participar en nuestras rifas 🎉</p>
+        </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>
