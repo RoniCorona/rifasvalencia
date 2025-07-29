@@ -372,8 +372,8 @@ form button:active {
 
 /* === Imagen de la Rifa (independiente, más pequeña) === */
 .imagen-rifa-standalone {
-    width: calc(100% - 2rem); /* Ancho ajustado para tener un pequeño padding visual */
-    height: 180px; /* **IMAGEN MÁS PEQUEÑA** */
+    width: 303px; /* ANCHO ESPECIFICADO */
+    height: 428px; /* ALTO ESPECIFICADO */
     overflow: hidden;
     margin-bottom: 0.8rem; /* Espacio debajo de la imagen */
     border-radius: 8px; /* Bordes ligeramente redondeados */
@@ -504,7 +504,7 @@ form button:active {
     box-sizing: border-box;
     border-bottom-left-radius: 14px; /* Para que coincida con la unidad de rifa */
     border-bottom-right-radius: 14px;
-    margin-top: 1.5rem; /* Margen superior para separarlo de los botones */
+    /* margin-top: 1.5rem;  Eliminado para que esté justo debajo de los botones */
 }
 
 .progreso-text {
@@ -1062,9 +1062,9 @@ form button:active {
 }
 
 .botones-cantidad-rapida button:hover {
-    background: var(--secondary-dark); /* Un poco más oscuro */
-    border-color: var(--accent-orange); /* Borde de acento */
-    color: var(--accent-orange); /* Texto de acento */
+    background: var(--secondary-dark);
+    border-color: var(--accent-orange);
+    color: var(--accent-orange);
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
@@ -1075,8 +1075,8 @@ form button:active {
 }
 
 .botones-cantidad-rapida button.seleccionado {
-    background: var(--accent-orange); /* Acento naranja */
-    color: var(--primary-dark); /* Texto oscuro */
+    background: var(--accent-orange);
+    color: var(--primary-dark);
     border-color: var(--accent-orange);
     transform: scale(1.05);
     box-shadow: 0 3px 8px rgba(255, 107, 0, 0.3);
