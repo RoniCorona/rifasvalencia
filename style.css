@@ -338,14 +338,14 @@ form button:active {
     gap: 1.5rem;
 }
 
-/* === Tarjetas de Rifa - NUEVO DISEÑO SORPRESA === */
+/* === Tarjetas de Rifa === */
 .rifa-card {
     width: 100%;
-    max-width: 350px; /* Mantener un ancho máximo para la tarjeta */
+    max-width: 350px;
     border-radius: 14px;
     background: var(--secondary-dark); /* Fondo oscuro para tarjetas */
     box-shadow: var(--shadow-dark-medium);
-    overflow: hidden; /* Importante para el recorte de la imagen */
+    overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
@@ -353,32 +353,29 @@ form button:active {
     flex-direction: column;
     justify-content: space-between;
     border: 1px solid var(--border-dark); /* Borde para tarjeta */
-    padding-top: 80px; /* Espacio para que la imagen sobresalga */
 }
 
-/* Contenedor de la imagen que "flota" */
-.card-header-floating {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 200px; /* Altura de la sección de la imagen */
-    transform: translateY(-50px); /* Hace que la imagen "flote" hacia arriba */
+.header-card-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background: var(--secondary-dark); /* Fondo del header flotante */
-    border-radius: 14px; /* Para que coincida con la tarjeta principal */
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
     overflow: hidden;
-    box-shadow: var(--shadow-dark-medium);
-    z-index: 10; /* Para que esté por encima del contenido de la tarjeta */
+}
+
+.titulo-producto-rifa {
+    font-size: 1.35rem;
+    margin: 0.5rem 0.8rem;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.3;
+    color: var(--text-light); /* Título de tarjeta claro */
 }
 
 .imagen-rifa {
-    width: 100%;
-    height: 100%; /* La imagen ocupa todo el espacio del header flotante */
+    height: 400px;
     overflow: hidden;
-    border-radius: 14px;
 }
 
 .imagen-rifa img {
@@ -386,93 +383,59 @@ form button:active {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s ease;
 }
 
-.rifa-card:hover .imagen-rifa img {
-    transform: scale(1.05); /* Zoom sutil en la imagen al hacer hover en la tarjeta */
+.rifa-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* Sombra más oscura en hover */
 }
 
-.card-header-info {
-    position: absolute; /* Para superponerlo en la imagen */
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); /* Degradado para el texto sobre la imagen */
-    padding: 1rem 0.8rem 0.5rem;
-    color: var(--text-light);
-    text-align: center;
-}
-
-.titulo-producto-rifa {
-    font-size: 1.25rem; /* Ajustado para el nuevo espacio */
-    margin: 0;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--text-light);
-    text-shadow: 0 1px 4px rgba(0,0,0,0.7);
-}
-
-.progreso-wrapper {
-    margin-top: 0.5rem;
-}
-
-/* === SECCIÓN DE PROGRESO (TEXTO) - AHORA DENTRO DEL HEADER DE LA TARJETA === */
+/* === SECCIÓN DE PROGRESO (TEXTO) === */
 .progreso {
-    background: none; /* Quitamos el fondo del texto, ahora el degradado es la barra */
-    color: var(--text-light); /* Texto claro */
-    padding: 0;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end)); /* Gradiente naranja/rojo */
+    color: var(--primary-dark); /* Texto oscuro para contraste en gradiente */
+    padding: 0.6rem;
     font-weight: bold;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     margin: 0;
     width: 100%;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    box-sizing: border-box;
 }
 
 .barra-container {
-    width: 90%; /* Ajuste para que la barra no sea tan ancha */
-    height: 8px; /* Barra más delgada */
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo transparente para barra */
-    margin: 0.2rem auto 0;
+    width: 100%;
+    height: 12px;
+    background-color: var(--border-dark); /* Fondo de barra oscuro */
+    margin: 0;
     position: relative;
-    border-radius: 4px;
-    overflow: hidden;
 }
 
-/* === BARRA DE PROGRESO (VISUAL) - DORADA Y CON NUEVO ESTILO === */
+/* === BARRA DE PROGRESO (VISUAL) === */
 .barra-progreso {
     height: 100%;
     background: linear-gradient(90deg, var(--accent-orange), var(--accent-red)); /* Gradiente naranja/rojo */
     transition: width 0.6s ease;
-    border-radius: 4px; /* Para que coincida con el contenedor */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .contenido-rifa {
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Centrar contenido */
-    margin-top: 80px; /* Offset para que no se solape con la imagen flotante */
 }
 
 .contenido-rifa p {
     margin: 0.3rem 0;
-    color: var(--text-medium);
-}
-
-.descripcion-corta {
-    font-size: 0.9rem;
-    color: var(--text-dark); /* Más tenue */
-    margin-bottom: 0.8rem;
+    color: var(--text-medium); /* Texto de párrafo en gris medio */
 }
 
 .precio {
     font-weight: bold;
-    color: var(--accent-orange); /* Precio en acento naranja */
-    font-size: 1.3rem; /* Más grande y prominente */
-    margin-bottom: 1rem; /* Espacio antes de los botones */
+    color: var(--text-light); /* Precio claro */
+    font-size: 1.1rem;
 }
 
 /* --- Contenedor de Acciones de la Tarjeta --- */
@@ -483,17 +446,16 @@ form button:active {
     align-items: center;
     padding: 1rem;
     gap: 0.8rem;
-    width: 100%; /* Ocupa el 100% del ancho del padre */
 }
 
 /* --- Botón Comprar de la tarjeta --- */
 .btn-comprar {
     display: block;
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 250px; /* Limitar ancho en pantallas grandes */
+    width: 100%;
+    max-width: 200px;
     text-align: center;
-    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
-    color: var(--primary-dark);
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end)); /* Gradiente naranja/rojo */
+    color: var(--primary-dark); /* Texto oscuro para contraste */
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -503,14 +465,14 @@ form button:active {
     text-decoration: none;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
-    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.4);
+    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.4); /* Sombra de acento naranja */
     outline: none;
 }
 
 .btn-comprar:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 16px rgba(255, 107, 0, 0.5);
-    background: linear-gradient(to right, var(--accent-red), var(--gradient-start));
+    background: linear-gradient(to right, var(--accent-red), var(--gradient-start)); /* Invertir gradiente o variar */
 }
 
 .btn-comprar:active {
@@ -519,7 +481,7 @@ form button:active {
 }
 
 .btn-comprar[disabled] {
-    background: var(--border-dark) !important;
+    background: var(--border-dark) !important; /* Gris oscuro para deshabilitado */
     color: var(--text-dark) !important;
     cursor: not-allowed !important;
     box-shadow: none !important;
@@ -529,12 +491,12 @@ form button:active {
 
 /* --- Botón Ver Tickets de la tarjeta --- */
 .ver-tickets {
-    background: var(--tertiary-dark);
+    background: var(--tertiary-dark); /* Fondo gris oscuro */
     display: block;
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 250px; /* Limitar ancho en pantallas grandes */
-    color: var(--text-light);
-    border: 1px solid var(--border-dark);
+    width: 100%;
+    max-width: 200px;
+    color: var(--text-light); /* Texto claro */
+    border: 1px solid var(--border-dark); /* Borde oscuro */
     padding: 0.7rem 1.1rem;
     border-radius: var(--button-radius);
     font-weight: 600;
@@ -547,9 +509,9 @@ form button:active {
 }
 
 .ver-tickets:hover {
-    background: var(--secondary-dark);
-    border-color: var(--accent-orange);
-    color: var(--accent-orange);
+    background: var(--secondary-dark); /* Un poco más oscuro en hover */
+    border-color: var(--accent-orange); /* Borde naranja en hover */
+    color: var(--accent-orange); /* Texto naranja en hover */
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
@@ -1510,7 +1472,7 @@ form button:active {
     h2 { font-size: 1.6rem; }
     .rifa-card {
         width: calc(50% - 1.5rem);
-        max-width: none; /* Permitir que ocupe más espacio */
+        max-width: none;
     }
     .datos-premio .dato {
         flex: 1 1 calc(50% - 1rem);
@@ -1592,14 +1554,9 @@ form button:active {
 .error-campo {
   color: var(--accent-red);
   font-size: 0.9rem;
-  margin-top: 0.2rem;
-  display: block;
+  margin-top: 4px;
 }
-/* O si quieres resaltar el input */
-.input-error {
-    border-color: var(--accent-red) !important;
-    box-shadow: 0 0 0 3px rgba(224, 59, 32, 0.3) !important;
-}
+
 
 /* --- ESTILOS PARA EL LOADER --- */
 #siguienteMetodo {
@@ -1672,8 +1629,8 @@ form button:active {
 
 /* Estilo para el botón de Copiar Datos */
 .btn-copiar-datos {
-    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
-    color: var(--primary-dark);
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end)); /* Gradiente */
+    color: var(--primary-dark); /* Texto oscuro para contraste */
     padding: 0.6rem 1.2rem;
     border: none;
     border-radius: var(--button-radius);
@@ -1694,7 +1651,7 @@ form button:active {
 
 /* Estado hover (al pasar el ratón por encima) */
 .btn-copiar-datos:hover {
-    background: linear-gradient(to right, var(--accent-red), var(--gradient-start));
+    background: linear-gradient(to right, var(--accent-red), var(--gradient-start)); /* Invertir gradiente o variar */
     transform: translateY(-2px);
     box-shadow: 0 5px 12px rgba(224, 59, 32, 0.4);
 }
