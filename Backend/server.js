@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // ===========================
 const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',')
-  : ['http://localhost:5173','http://127.0.0.1:5500','http://localhost:5000','https://www.modorifa.com'];
+  : ['http://localhost:5173','http://127.0.0.1:5500','http://localhost:5000','https://www.modorifa.com','https://rifasvalencia.onrender.com/'];
 
 app.use(cors({
   origin: function (origin, callback) {
