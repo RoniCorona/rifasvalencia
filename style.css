@@ -338,14 +338,14 @@ form button:active {
     gap: 1.5rem;
 }
 
-/* === Tarjetas de Rifa - NUEVO DISEÑO SORPRESA === */
+/* === Tarjetas de Rifa - DISEÑO ANTERIOR CON AJUSTES === */
 .rifa-card {
     width: 100%;
-    max-width: 350px; /* Mantener un ancho máximo para la tarjeta */
+    max-width: 350px;
     border-radius: 14px;
     background: var(--secondary-dark); /* Fondo oscuro para tarjetas */
     box-shadow: var(--shadow-dark-medium);
-    overflow: hidden; /* Importante para el recorte de la imagen */
+    overflow: hidden; /* Mantiene el contenido dentro de los bordes redondeados */
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
@@ -353,32 +353,17 @@ form button:active {
     flex-direction: column;
     justify-content: space-between;
     border: 1px solid var(--border-dark); /* Borde para tarjeta */
-    padding-top: 80px; /* Espacio para que la imagen sobresalga */
+    padding-bottom: 0; /* Asegurarse que no haya padding extra abajo */
 }
 
-/* Contenedor de la imagen que "flota" */
-.card-header-floating {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 200px; /* Altura de la sección de la imagen */
-    transform: translateY(-50px); /* Hace que la imagen "flote" hacia arriba */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--secondary-dark); /* Fondo del header flotante */
-    border-radius: 14px; /* Para que coincida con la tarjeta principal */
-    overflow: hidden;
-    box-shadow: var(--shadow-dark-medium);
-    z-index: 10; /* Para que esté por encima del contenido de la tarjeta */
-}
-
+/* La imagen ahora es un elemento separado pero con el mismo tamaño y proporciones */
 .imagen-rifa {
-    width: 100%;
-    height: 100%; /* La imagen ocupa todo el espacio del header flotante */
+    height: 250px; /* Altura fija para la imagen, similar a la anterior */
     overflow: hidden;
-    border-radius: 14px;
+    /* Remover bordes redondeados aquí si la imagen no se "encierra" en la tarjeta */
+    /* Para que la imagen parezca "libre" pero tenga el mismo tamaño, podemos darle margen negativo o posicionarla */
+    /* Sin embargo, la forma más sencilla es que la imagen tenga el mismo width que la tarjeta */
+    /* y el overflow hidden en la tarjeta principal la "recortará" a los bordes */
 }
 
 .imagen-rifa img {
@@ -386,111 +371,77 @@ form button:active {
     height: 100%;
     object-fit: cover;
     display: block;
+    /* Transición para un posible efecto hover */
     transition: transform 0.3s ease;
 }
 
 .rifa-card:hover .imagen-rifa img {
-    transform: scale(1.05); /* Zoom sutil en la imagen al hacer hover en la tarjeta */
+    transform: scale(1.03); /* Zoom sutil al pasar el ratón */
 }
 
-.card-header-info {
-    position: absolute; /* Para superponerlo en la imagen */
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); /* Degradado para el texto sobre la imagen */
-    padding: 1rem 0.8rem 0.5rem;
-    color: var(--text-light);
-    text-align: center;
+.header-card-info {
+    /* Estilos para el contenedor del título y la imagen, si es necesario */
+    /* En este diseño, la imagen está directamente en la tarjeta, no superpuesta */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem; /* Padding para separar del borde superior de la tarjeta */
 }
+
 
 .titulo-producto-rifa {
-    font-size: 1.25rem; /* Ajustado para el nuevo espacio */
-    margin: 0;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--text-light);
-    text-shadow: 0 1px 4px rgba(0,0,0,0.7);
-}
-
-.progreso-wrapper {
-    margin-top: 0.5rem;
-}
-
-/* === SECCIÓN DE PROGRESO (TEXTO) - AHORA DENTRO DEL HEADER DE LA TARJETA === */
-.progreso {
-    background: none; /* Quitamos el fondo del texto, ahora el degradado es la barra */
-    color: var(--text-light); /* Texto claro */
+    font-size: 1.35rem;
+    margin: 0.5rem 0.8rem;
     padding: 0;
+    text-align: center;
     font-weight: bold;
-    font-size: 0.85rem;
-    margin: 0;
-    width: 100%;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-}
-
-.barra-container {
-    width: 90%; /* Ajuste para que la barra no sea tan ancha */
-    height: 8px; /* Barra más delgada */
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo transparente para barra */
-    margin: 0.2rem auto 0;
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-/* === BARRA DE PROGRESO (VISUAL) - DORADA Y CON NUEVO ESTILO === */
-.barra-progreso {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent-orange), var(--accent-red)); /* Gradiente naranja/rojo */
-    transition: width 0.6s ease;
-    border-radius: 4px; /* Para que coincida con el contenedor */
+    line-height: 1.3;
+    color: var(--text-light); /* Título de tarjeta claro */
 }
 
 .contenido-rifa {
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Centrar contenido */
-    margin-top: 80px; /* Offset para que no se solape con la imagen flotante */
+    color: var(--text-medium);
 }
 
 .contenido-rifa p {
     margin: 0.3rem 0;
-    color: var(--text-medium);
+    color: var(--text-medium); /* Texto de párrafo en gris medio */
 }
 
 .descripcion-corta {
-    font-size: 0.9rem;
-    color: var(--text-dark); /* Más tenue */
+    font-size: 0.95rem;
+    color: var(--text-medium);
     margin-bottom: 0.8rem;
 }
 
 .precio {
     font-weight: bold;
     color: var(--accent-orange); /* Precio en acento naranja */
-    font-size: 1.3rem; /* Más grande y prominente */
-    margin-bottom: 1rem; /* Espacio antes de los botones */
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
 }
 
 /* --- Contenedor de Acciones de la Tarjeta --- */
 .acciones {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Botones apilados */
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 0 1rem 1rem; /* Padding inferior para los botones */
     gap: 0.8rem;
-    width: 100%; /* Ocupa el 100% del ancho del padre */
+    width: 100%;
 }
 
 /* --- Botón Comprar de la tarjeta --- */
 .btn-comprar {
     display: block;
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 250px; /* Limitar ancho en pantallas grandes */
+    width: 100%;
+    max-width: 200px;
     text-align: center;
     background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
     color: var(--primary-dark);
@@ -531,8 +482,8 @@ form button:active {
 .ver-tickets {
     background: var(--tertiary-dark);
     display: block;
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 250px; /* Limitar ancho en pantallas grandes */
+    width: 100%;
+    max-width: 200px;
     color: var(--text-light);
     border: 1px solid var(--border-dark);
     padding: 0.7rem 1.1rem;
@@ -558,6 +509,47 @@ form button:active {
     transform: translateY(0);
     box-shadow: 1px 3px rgba(0, 0, 0, 0.3);
 }
+
+/* === SECCIÓN DE PROGRESO (TEXTO) - REUBICADA BAJO LOS BOTONES === */
+.progreso-wrapper {
+    width: 100%;
+    padding: 1rem; /* Padding para separar del resto del contenido de la tarjeta */
+    background: var(--primary-dark); /* Fondo para la barra de progreso */
+    border-top: 1px solid var(--border-dark); /* Separador */
+    box-sizing: border-box; /* Asegura que el padding no añada ancho extra */
+    border-bottom-left-radius: 14px; /* Para que la barra se vea como parte de la tarjeta */
+    border-bottom-right-radius: 14px;
+}
+
+.progreso {
+    background: none; /* Sin fondo de color, el gradiente será la barra */
+    color: var(--text-light); /* Texto claro */
+    padding: 0;
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin: 0 0 0.5rem 0; /* Margen inferior para separar de la barra visual */
+    text-align: center;
+}
+
+.barra-container {
+    width: 100%;
+    height: 12px;
+    background-color: var(--border-dark); /* Fondo oscuro de la barra */
+    margin: 0;
+    position: relative;
+    border-radius: 6px; /* Bordes redondeados para la barra */
+    overflow: hidden;
+}
+
+/* === BARRA DE PROGRESO (VISUAL) === */
+.barra-progreso {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-orange), var(--accent-red)); /* Gradiente naranja/rojo */
+    transition: width 0.6s ease;
+    border-radius: 6px; /* Para que coincida con el contenedor */
+}
+/* === FIN BARRA DE PROGRESO DORADA === */
+
 
 /* === ESTILOS DEL OVERLAY DEL MODAL === */
 .modal {
