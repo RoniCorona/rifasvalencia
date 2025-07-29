@@ -1681,82 +1681,71 @@ form button:active {
 }
 
 
-/* ==== AJUSTES VISUALES BASADOS EN LA ESTRUCTURA ORIGINAL DEL HTML ==== */
 
-/* Imagen de la rifa: más pequeña, centrada, con sombra */
-.rifa-imagen {
-    width: 270px;
-    height: 270px;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    margin: 0 auto 1rem auto;
+/* ==== CORRECCIONES BASADAS EN LAS CLASES REALES DEL HTML ==== */
+
+/* Imagen de la rifa */
+.imagen-rifa-standalone {
+  width: 270px;
+  height: 270px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  margin: 0 auto 1rem auto;
+  display: block;
 }
 
-.rifa-imagen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.imagen-rifa-standalone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Contenedor general de la rifa */
-.rifa-unit {
-    width: 100%;
-    max-width: 340px;
-    background: none;
-    box-shadow: none;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    margin: 0 auto;
+/* Botones centrados debajo de la imagen */
+.acciones-standalone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
 }
 
-/* Botones de acción centrados */
-.rifa-acciones {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.7rem;
-    margin-bottom: 1rem;
+.acciones-standalone a,
+.acciones-standalone button {
+  max-width: 200px;
+  width: 100%;
 }
 
-.rifa-acciones a,
-.rifa-acciones button {
-    max-width: 200px;
-    width: 100%;
+/* Barra de progreso visible y alineada */
+.progreso-wrapper-standalone {
+  width: 100%;
+  padding: 0.5rem 1rem 1rem;
+  margin-top: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
 }
 
-/* Progreso justo debajo de los botones */
-.rifa-progreso {
-    width: 100%;
-    padding: 0.5rem 1rem 1rem;
-    margin-top: 0;
-    background: none;
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
+.progreso-text {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #ff6600; /* reemplazo de --accent-orange */
 }
 
-.rifa-progreso p {
-    margin-bottom: 0.3rem;
-    font-size: 0.9rem;
-    text-align: center;
-    color: var(--accent-orange);
+.barra-container-standalone {
+  height: 10px;
+  background-color: #e0e0e0; /* reemplazo de --border-dark */
+  border-radius: 5px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 270px;
+  margin: 0 auto;
 }
 
-.rifa-barra {
-    height: 10px;
-    background-color: var(--border-dark);
-    border-radius: 5px;
-    overflow: hidden;
-    width: 100%;
-    max-width: 270px;
-}
-
-.rifa-barra-llenado {
-    background: linear-gradient(to right, var(--accent-orange), var(--accent-red));
-    height: 100%;
-    border-radius: 5px;
+.barra-progreso-standalone {
+  background: linear-gradient(to right, #ff6600, #ff0033); /* reemplazo de --accent-orange/red */
+  height: 100%;
+  border-radius: 5px;
 }
