@@ -1,22 +1,30 @@
 /* === Variables CSS para fácil edición de colores === */
 :root {
-    --primary-blue: #1A365D; /* Azul oscuro principal, corporativo */
-    --secondary-blue: #2A528A; /* Azul medio, para acciones y acentos */
-    --light-blue: #4299E1; /* Azul claro, para resaltados */
-    --accent-gold: #FFD700; /* Dorado para progreso y acentos */
-    --light-gold: #DAA520; /* Dorado más claro para degradado */
-    --text-dark: #2D3748; /* Gris oscuro para texto principal */
-    --text-light: #4A5568; /* Gris medio para texto secundario */
-    --bg-light: #F7FAFC; /* Fondo muy claro */
-    --bg-white: #FFFFFF; /* Blanco puro para elementos destacados */
-    --border-light: #E2E8F0; /* Borde claro */
-    --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.12);
+    /* Paleta Oscura con Acentos Cálidos */
+    --primary-dark: #121212; /* Negro muy oscuro para fondos principales */
+    --secondary-dark: #1E1E1E; /* Gris oscuro para elementos destacados */
+    --tertiary-dark: #2C2C2C; /* Gris un poco más claro para fondos de componentes */
+
+    --accent-orange: #FF6B00; /* Naranja vibrante para acentos */
+    --accent-red: #E03B20; /* Rojo vibrante para acentos y gradientes */
+    --gradient-start: #FF6B00; /* Inicio del gradiente cálido */
+    --gradient-end: #E03B20; /* Fin del gradiente cálido */
+
+    --text-light: #F7FAFC; /* Blanco roto para texto principal */
+    --text-medium: #CBD5E0; /* Gris claro para texto secundario */
+    --text-dark: #A0AEC0; /* Gris para texto menos importante o muted */
+
+    --border-dark: #4A4A4A; /* Borde oscuro */
+    --border-light-accent: #6B6B6B; /* Borde para elementos claros sobre oscuro */
+
+    --shadow-dark-subtle: 0 2px 8px rgba(0, 0, 0, 0.4); /* Sombra para fondos oscuros */
+    --shadow-dark-medium: 0 8px 20px rgba(0, 0, 0, 0.6); /* Sombra más pronunciada para fondos oscuros */
+
     --transition-fast: 0.2s ease-out;
     --transition-medium: 0.3s ease-in-out;
-    --button-radius: 10px; /* ¡Ajustado para un borde más suave! */
-    --button-padding-y: 0.8rem; /* Padding vertical base para botones */
-    --button-padding-x: 1.6rem; /* Padding horizontal base para botones */
+    --button-radius: 10px;
+    --button-padding-y: 0.8rem;
+    --button-padding-x: 1.6rem;
 }
 
 /* === Estilo Global (MOBILE-FIRST) === */
@@ -25,32 +33,33 @@
 }
 
 html {
-    font-size: 14px; /* Base para rem en móviles */
+    font-size: 14px;
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    background: linear-gradient(to bottom right, var(--bg-light), #edf2f7);
-    color: var(--text-dark);
+    /* Fondo con degradado de negros/grises oscuros */
+    background: linear-gradient(to bottom right, var(--primary-dark), var(--secondary-dark));
+    color: var(--text-light); /* Texto principal claro */
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
-/* --- Header - PROFESIONAL Y MODERNO --- */
+/* --- Header --- */
 header {
-    background: var(--primary-blue);
-    color: white;
+    background: var(--primary-dark); /* Fondo oscuro */
+    color: var(--text-light); /* Texto claro */
     padding: 1.2rem 1rem;
     text-align: center;
     position: relative;
     top: unset;
     z-index: 1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-dark-medium); /* Sombra ajustada para oscuro */
     display: flex;
-    flex-direction: row; /* CORREGIDO: Asegura que el contenido se mantenga en una fila */
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
@@ -63,8 +72,8 @@ header h1 {
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: -0.04em;
-    color: white;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: var(--text-light); /* Título claro */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     font-family: 'Montserrat', sans-serif;
     width: 100%;
     margin-bottom: 1rem;
@@ -77,7 +86,7 @@ header h1 a {
 }
 
 header h1 a:hover {
-    color: var(--light-blue);
+    color: var(--accent-orange); /* Acento naranja en hover */
 }
 
 .header-buttons {
@@ -89,10 +98,10 @@ header h1 a:hover {
     justify-content: center;
 }
 
-/* --- Botones del Header - MEJORADOS --- */
+/* --- Botones del Header --- */
 .header-buttons button {
-    background-color: var(--light-blue);
-    color: white;
+    background-color: var(--accent-orange); /* Botón con acento naranja */
+    color: var(--primary-dark); /* Texto oscuro para contraste */
     border: none;
     padding: 0.75rem 1.4rem;
     border-radius: var(--button-radius);
@@ -100,7 +109,7 @@ header h1 a:hover {
     font-weight: 600;
     cursor: pointer;
     transition: background-color var(--transition-fast), transform 0.15s ease, box-shadow var(--transition-fast);
-    box-shadow: 0 4px 10px rgba(49, 130, 206, 0.2);
+    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.4); /* Sombra de acento naranja */
     text-transform: uppercase;
     letter-spacing: 0.03em;
     font-family: 'Montserrat', sans-serif;
@@ -108,25 +117,25 @@ header h1 a:hover {
 }
 
 .header-buttons button:hover {
-    background-color: #3182ce;
+    background-color: var(--accent-red); /* Rojo en hover */
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(49, 130, 206, 0.35);
+    box-shadow: 0 6px 14px rgba(224, 59, 32, 0.5); /* Sombra de acento rojo */
 }
 
 .header-buttons button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(49, 130, 206, 0.2);
+    box-shadow: 0 2px 5px rgba(255, 107, 0, 0.3);
 }
 
-/* --- Footer - PROFESIONAL Y CONCISO --- */
+/* --- Footer --- */
 footer {
-    background: var(--primary-blue);
-    color: white;
+    background: var(--primary-dark); /* Fondo oscuro */
+    color: var(--text-light); /* Texto claro */
     padding: 2rem 1rem;
     text-align: center;
     font-size: 0.85rem;
-    border-top: 4px solid var(--secondary-blue);
-    box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid var(--secondary-dark); /* Borde oscuro */
+    box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,7 +148,7 @@ footer p {
     opacity: 0.85;
 }
 
-.footer-links {
+.footer-links { /* No usado en index.html, pero mantenido */
     margin-top: 0.5rem;
     display: flex;
     flex-wrap: wrap;
@@ -147,7 +156,7 @@ footer p {
 }
 
 .footer-links a {
-    color: white;
+    color: var(--text-light); /* Texto claro */
     text-decoration: none;
     margin: 0 0.7rem;
     transition: color var(--transition-fast);
@@ -156,7 +165,7 @@ footer p {
 }
 
 .footer-links a:hover {
-    color: var(--light-blue);
+    color: var(--accent-orange); /* Acento naranja en hover */
 }
 
 .social-icons {
@@ -167,29 +176,29 @@ footer p {
 }
 
 .social-icons a {
-    color: white;
+    color: var(--text-light); /* Iconos claros */
     font-size: 1.4rem;
     transition: color var(--transition-fast), transform 0.15s ease;
 }
 
 .social-icons a:hover {
-    color: var(--accent-gold);
+    color: var(--accent-orange); /* Acento naranja en hover */
     transform: translateY(-2px);
 }
 
-/* --- FOOTER SOCIAL MEDIA (Nuevos estilos para redes sociales) --- */
+/* --- FOOTER SOCIAL MEDIA --- */
 .footer-social-media {
     text-align: center;
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--secondary-blue);
+    border-top: 1px solid var(--border-dark); /* Borde oscuro */
     width: 100%;
 }
 
 .footer-social-media h3 {
     margin-bottom: 0.8rem;
     font-size: 1.1em;
-    color: white;
+    color: var(--text-light); /* Título claro */
 }
 
 .social-icons {
@@ -203,13 +212,13 @@ footer p {
     display: inline-block;
     transition: transform 0.2s ease-in-out;
     line-height: 1;
-    color: white;
+    color: var(--text-light); /* Iconos claros */
     font-size: 1.4rem;
 }
 
 .social-icons a:hover {
     transform: translateY(-3px);
-    color: var(--accent-gold);
+    color: var(--accent-orange); /* Acento naranja en hover */
 }
 
 .social-icons img {
@@ -222,7 +231,7 @@ footer p {
 /* === Títulos y Párrafos === */
 h1, h2, h3, h4 {
     margin-bottom: 0.6rem;
-    color: var(--primary-blue);
+    color: var(--text-light); /* Títulos claros */
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     line-height: 1.2;
@@ -237,6 +246,7 @@ h4 { font-size: 1.2rem; }
 p {
     opacity: 0.9;
     font-family: 'Montserrat', sans-serif;
+    color: var(--text-medium); /* Párrafos en gris medio */
 }
 
 main {
@@ -254,27 +264,29 @@ form select {
     font-size: 0.95rem;
     margin: 0.4rem 0;
     border-radius: var(--button-radius);
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--border-dark); /* Borde oscuro */
     transition: all var(--transition-fast);
     width: 100%;
     font-family: 'Montserrat', sans-serif;
+    background-color: var(--secondary-dark); /* Fondo oscuro para inputs */
+    color: var(--text-light); /* Texto claro en inputs */
 }
 
 form input:focus,
 form select:focus {
     outline: none;
-    border: 2px solid var(--secondary-blue);
-    box-shadow: 0 0 0 3px rgba(42, 82, 138, 0.2);
+    border: 2px solid var(--accent-orange); /* Borde de acento naranja al enfocar */
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.3);
 }
 
-/* --- Botones de Formulario General - MEJORADOS --- */
+/* --- Botones de Formulario General --- */
 form button {
-    background-color: var(--secondary-blue);
-    color: white;
+    background-color: var(--accent-orange); /* Botón de acento naranja */
+    color: var(--primary-dark); /* Texto oscuro para contraste */
     cursor: pointer;
     border: none;
     font-weight: 600;
-    box-shadow: 0 4px 10px rgba(42, 82, 138, 0.2);
+    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.3);
     transition: background-color var(--transition-fast), transform 0.15s ease, box-shadow var(--transition-fast);
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -283,29 +295,29 @@ form button {
 }
 
 form button:hover {
-    background-color: var(--light-blue);
+    background-color: var(--accent-red); /* Rojo en hover */
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(42, 82, 138, 0.3);
+    box-shadow: 0 6px 14px rgba(224, 59, 32, 0.4);
 }
 
 form button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(42, 82, 138, 0.2);
+    box-shadow: 0 2px 5px rgba(255, 107, 0, 0.2);
 }
 
 /* === Sección de Rifas (index.html) === */
 #rifas-disponibles {
     padding: 2rem 1rem;
-    background: var(--bg-white);
+    background: var(--tertiary-dark); /* Fondo de sección oscuro */
     border-radius: 12px;
-    box-shadow: var(--shadow-medium);
+    box-shadow: var(--shadow-dark-medium);
 }
 
 #rifas-disponibles h2 {
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
-    color: var(--primary-blue);
+    color: var(--text-light); /* Título claro */
     position: relative;
 }
 
@@ -314,7 +326,7 @@ form button:active {
     display: block;
     width: 60px;
     height: 3px;
-    background: linear-gradient(to right, var(--accent-gold), var(--light-gold));
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end)); /* Gradiente naranja/rojo */
     margin: 0.6rem auto 0;
     border-radius: 1.5px;
 }
@@ -326,13 +338,13 @@ form button:active {
     gap: 1.5rem;
 }
 
-/* === Tarjetas de Rifa - DISEÑO ORIGINAL (INTACTO) === */
+/* === Tarjetas de Rifa === */
 .rifa-card {
     width: 100%;
     max-width: 350px;
     border-radius: 14px;
-    background: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    background: var(--secondary-dark); /* Fondo oscuro para tarjetas */
+    box-shadow: var(--shadow-dark-medium);
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -340,6 +352,7 @@ form button:active {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid var(--border-dark); /* Borde para tarjeta */
 }
 
 .header-card-info {
@@ -357,6 +370,7 @@ form button:active {
     text-align: center;
     font-weight: bold;
     line-height: 1.3;
+    color: var(--text-light); /* Título de tarjeta claro */
 }
 
 .imagen-rifa {
@@ -373,13 +387,13 @@ form button:active {
 
 .rifa-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 10px 20px rgba(26, 54, 93, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* Sombra más oscura en hover */
 }
 
-/* === SECCIÓN DE PROGRESO (TEXTO) - VUELTA A ORIGINAL === */
+/* === SECCIÓN DE PROGRESO (TEXTO) === */
 .progreso {
-    background: linear-gradient(to right, #2a528a, #90cdf4);
-    color: white;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end)); /* Gradiente naranja/rojo */
+    color: var(--primary-dark); /* Texto oscuro para contraste en gradiente */
     padding: 0.6rem;
     font-weight: bold;
     font-size: 0.95rem;
@@ -391,20 +405,19 @@ form button:active {
 .barra-container {
     width: 100%;
     height: 12px;
-    background-color: #e2e8f0;
+    background-color: var(--border-dark); /* Fondo de barra oscuro */
     margin: 0;
     position: relative;
 }
 
-/* === BARRA DE PROGRESO (VISUAL) - AHORA SÍ DORADA === */
+/* === BARRA DE PROGRESO (VISUAL) === */
 .barra-progreso {
     height: 100%;
-    background: linear-gradient(90deg, #DAA520, #FFD700);
+    background: linear-gradient(90deg, var(--accent-orange), var(--accent-red)); /* Gradiente naranja/rojo */
     transition: width 0.6s ease;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
-/* === FIN BARRA DE PROGRESO DORADA === */
 
 .contenido-rifa {
     padding: 0.5rem 1rem;
@@ -416,15 +429,16 @@ form button:active {
 
 .contenido-rifa p {
     margin: 0.3rem 0;
+    color: var(--text-medium); /* Texto de párrafo en gris medio */
 }
 
 .precio {
     font-weight: bold;
-    color: #1a365d;
+    color: var(--text-light); /* Precio claro */
     font-size: 1.1rem;
 }
 
-/* --- Contenedor de Acciones de la Tarjeta - ¡AHORA LOS BOTONES SE APILAN! --- */
+/* --- Contenedor de Acciones de la Tarjeta --- */
 .acciones {
     display: flex;
     flex-direction: column;
@@ -434,14 +448,14 @@ form button:active {
     gap: 0.8rem;
 }
 
-/* --- Botón Comprar de la tarjeta - MEJORADO --- */
+/* --- Botón Comprar de la tarjeta --- */
 .btn-comprar {
     display: block;
     width: 100%;
     max-width: 200px;
     text-align: center;
-    background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
-    color: white;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end)); /* Gradiente naranja/rojo */
+    color: var(--primary-dark); /* Texto oscuro para contraste */
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -451,69 +465,70 @@ form button:active {
     text-decoration: none;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
-    box-shadow: 0 4px 10px rgba(26, 54, 93, 0.2);
+    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.4); /* Sombra de acento naranja */
     outline: none;
 }
 
 .btn-comprar:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 16px rgba(26, 54, 93, 0.35);
-    background: linear-gradient(to right, var(--secondary-blue), var(--light-blue));
+    box-shadow: 0 8px 16px rgba(255, 107, 0, 0.5);
+    background: linear-gradient(to right, var(--accent-red), var(--gradient-start)); /* Invertir gradiente o variar */
 }
 
 .btn-comprar:active {
     transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(26, 54, 93, 0.2);
+    box-shadow: 0 2px 5px rgba(255, 107, 0, 0.3);
 }
 
 .btn-comprar[disabled] {
-    background: #a0aec0 !important;
+    background: var(--border-dark) !important; /* Gris oscuro para deshabilitado */
+    color: var(--text-dark) !important;
     cursor: not-allowed !important;
     box-shadow: none !important;
     transform: none !important;
     opacity: 0.8;
 }
 
-/* --- Botón Ver Tickets de la tarjeta - MEJORADO --- */
+/* --- Botón Ver Tickets de la tarjeta --- */
 .ver-tickets {
-    background: var(--bg-light);
+    background: var(--tertiary-dark); /* Fondo gris oscuro */
     display: block;
     width: 100%;
     max-width: 200px;
-    color: var(--text-dark);
-    border: 1px solid var(--border-light);
+    color: var(--text-light); /* Texto claro */
+    border: 1px solid var(--border-dark); /* Borde oscuro */
     padding: 0.7rem 1.1rem;
     border-radius: var(--button-radius);
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-dark-subtle);
     font-family: 'Montserrat', sans-serif;
     font-size: 0.95rem;
     outline: none;
 }
 
 .ver-tickets:hover {
-    background: #e2e8f0;
-    border-color: var(--secondary-blue);
-    color: var(--secondary-blue);
+    background: var(--secondary-dark); /* Un poco más oscuro en hover */
+    border-color: var(--accent-orange); /* Borde naranja en hover */
+    color: var(--accent-orange); /* Texto naranja en hover */
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .ver-tickets:active {
     transform: translateY(0);
-    box-shadow: 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* === ESTILOS DEL OVERLAY DEL MODAL (GENÉRICO Y CORREGIDO) === */
+/* === ESTILOS DEL OVERLAY DEL MODAL === */
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo más oscuro */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -530,10 +545,10 @@ form button:active {
 }
 
 .modal-contenido {
-    background-color: var(--bg-white);
+    background-color: var(--secondary-dark); /* Fondo oscuro para el modal */
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-dark-medium);
     width: 90%;
     max-width: 500px;
     max-height: 90vh;
@@ -541,7 +556,8 @@ form button:active {
     position: relative;
     animation: fadeInModal 0.4s ease;
     text-align: center;
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--border-dark); /* Borde oscuro */
+    color: var(--text-light); /* Texto claro */
 }
 
 .cerrar-modal {
@@ -552,7 +568,7 @@ form button:active {
     border: none;
     font-size: 28px;
     cursor: pointer;
-    color: var(--text-light);
+    color: var(--text-medium); /* Color gris medio */
     transition: color var(--transition-fast);
     line-height: 1;
     padding: 0;
@@ -560,7 +576,7 @@ form button:active {
 }
 
 .cerrar-modal:hover {
-    color: var(--primary-blue);
+    color: var(--accent-orange); /* Acento naranja en hover */
 }
 .cerrar-modal:active {
     transform: translateY(1px);
@@ -577,18 +593,19 @@ form button:active {
     text-align: center;
     margin-bottom: 18px;
     font-size: 1.6rem;
-    color: var(--primary-blue);
+    color: var(--text-light); /* Título claro */
 }
 
-/* --- Botón del formulario de consulta de tickets - MEJORADO --- */
+/* --- Botón del formulario de consulta de tickets --- */
 #modalTickets #formConsultarTickets button {
-    background-color: var(--secondary-blue);
+    background-color: var(--accent-orange); /* Acento naranja */
+    color: var(--primary-dark); /* Texto oscuro */
     width: 100%;
     max-width: 300px;
     padding: var(--button-padding-y) var(--button-padding-x);
     margin-top: 15px;
     border-radius: var(--button-radius);
-    box-shadow: 0 4px 10px rgba(42, 82, 138, 0.2);
+    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.3);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -598,11 +615,11 @@ form button:active {
 
 #modalTickets #formConsultarTickets button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(42, 82, 138, 0.3);
+    box-shadow: 0 6px 14px rgba(255, 107, 0, 0.4);
 }
 #modalTickets #formConsultarTickets button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(42, 82, 138, 0.2);
+    box-shadow: 0 2px 5px rgba(255, 107, 0, 0.2);
 }
 
 #modalTickets #formConsultarTickets {
@@ -616,18 +633,22 @@ form button:active {
     max-width: 300px;
     border-radius: var(--button-radius);
     padding: 0.7rem;
+    background-color: var(--tertiary-dark); /* Fondo de input oscuro */
+    color: var(--text-light); /* Texto de input claro */
+    border: 1px solid var(--border-dark);
 }
 
 #resultados-consulta-tickets {
     margin-top: 20px;
     padding: 15px;
-    background-color: #fdfefe;
-    border: 1px solid var(--border-light);
+    background-color: var(--tertiary-dark); /* Fondo oscuro */
+    border: 1px solid var(--border-dark);
     border-radius: 10px;
     max-height: 400px;
     overflow-y: auto;
     text-align: left;
-    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+    color: var(--text-medium); /* Texto gris medio */
 }
 
 #resultados-consulta-tickets h4 {
@@ -635,13 +656,13 @@ form button:active {
     margin-bottom: 15px;
     font-size: 1.1em;
     text-align: center;
-    color: var(--primary-blue);
+    color: var(--text-light); /* Título claro */
 }
 
 .consulta-header {
     margin-bottom: 20px;
     padding-bottom: 15px;
-    border-bottom: 1px dashed var(--border-light);
+    border-bottom: 1px dashed var(--border-dark);
 }
 
 .consulta-header h2 {
@@ -653,34 +674,34 @@ form button:active {
 .buyer-details p {
     margin: 6px 0;
     font-size: 0.95rem;
-    color: var(--text-light);
+    color: var(--text-medium); /* Texto gris medio */
     word-break: break-word;
 }
 
 .buyer-details strong {
-    color: var(--primary-blue);
+    color: var(--accent-orange); /* Detalles en acento naranja */
 }
 
 .rifa-tickets-group {
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--border-dark);
     padding: 12px;
     margin-bottom: 15px;
     border-radius: 8px;
-    background: var(--bg-white);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    background: var(--secondary-dark); /* Fondo oscuro para grupo de tickets */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
 .rifa-tickets-group p {
     margin: 5px 0;
     font-size: 0.9rem;
-    color: var(--text-dark);
+    color: var(--text-medium); /* Texto gris medio */
 }
 
 .rifa-tickets-group strong {
-    color: var(--secondary-blue);
+    color: var(--accent-orange); /* Acento naranja */
 }
 
-/* === BOLETOS INDIVIDUALES - VUELTA A ORIGINAL === */
+/* === BOLETOS INDIVIDUALES === */
 .boletos-list {
     display: flex;
     flex-wrap: wrap;
@@ -690,32 +711,32 @@ form button:active {
 }
 
 .boletos-list .boleto {
-    background: #ebf8ff; /* Un azul muy claro, consistente con el diseño general */
-    border: 2px solid var(--secondary-blue);
+    background: var(--tertiary-dark); /* Fondo oscuro */
+    border: 2px solid var(--accent-orange); /* Borde de acento naranja */
     padding: 0.8rem 1.2rem;
     border-radius: 12px;
     font-weight: bold;
-    color: var(--primary-blue);
+    color: var(--text-light); /* Texto claro */
     font-size: 1.1rem;
     min-width: 80px;
     animation: fadeIn 0.5s ease forwards;
     white-space: nowrap;
     transition: all 0.2s ease-in-out;
     text-align: center;
-    box-shadow: var(--shadow-subtle);
+    box-shadow: var(--shadow-dark-subtle);
 }
 
 .boletos-list .boleto:hover {
-    background: var(--light-blue);
-    color: white;
+    background: var(--accent-orange); /* Naranja en hover */
+    color: var(--primary-dark); /* Texto oscuro en hover */
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(42, 82, 138, 0.2);
+    box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
 }
 
 .boleto-consulta {
-  background: #ebf8ff;
-  border: 2px solid var(--secondary-blue);
-  color: var(--primary-blue);
+  background: var(--tertiary-dark);
+  border: 2px solid var(--accent-orange);
+  color: var(--text-light);
   padding: 0.8rem 1.2rem;
   border-radius: 12px;
   font-weight: bold;
@@ -725,21 +746,21 @@ form button:active {
   text-align: center;
   white-space: nowrap;
   margin: 4px;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: var(--shadow-dark-subtle);
   transition: all 0.2s ease-in-out;
 }
 
 .boleto-consulta:hover {
-  background: var(--light-blue);
-  color: white;
+  background: var(--accent-orange);
+  color: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(42, 82, 138, 0.2);
+  box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
 }
 
 /* === FIN BOLETOS INDIVIDUALES === */
 
 .mensaje-error {
-    color: #E53E3E;
+    color: var(--accent-red); /* Color de error rojo */
     margin-top: 0.6rem;
     font-size: 0.95rem;
     font-weight: 500;
@@ -747,14 +768,20 @@ form button:active {
 }
 
 /* === Estilos para página de detalles de rifa (rifa.html) === */
+/*
+  NOTA: Estos estilos aún están basados en la paleta anterior.
+  Cuando confirmemos el diseño en index.html, los aplicaremos aquí.
+  Mantengo los comentarios originales solo para referencia.
+*/
 .contenedor-rifa-detalle {
     padding: 2.5rem 1rem;
     text-align: center;
     max-width: 900px;
     margin: auto;
-    background: var(--bg-white);
+    background: var(--tertiary-dark); /* Fondo oscuro */
     border-radius: 12px;
-    box-shadow: var(--shadow-medium);
+    box-shadow: var(--shadow-dark-medium);
+    color: var(--text-light); /* Texto claro */
 }
 
 .barra-venta-general {
@@ -767,35 +794,35 @@ form button:active {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.4rem;
-    color: #1a365d;
+    color: var(--text-light); /* Texto claro */
 }
 
 .barra-global {
     width: 100%;
     height: 18px;
-    background-color: #e2e8f0;
+    background-color: var(--border-dark); /* Fondo oscuro de la barra */
     border-radius: 10px;
     overflow: hidden;
 }
 
-/* === BARRA DE PROGRESO GLOBAL (VISUAL) - AHORA SÍ DORADA === */
+/* === BARRA DE PROGRESO GLOBAL (VISUAL) === */
 .barra-global-progreso {
     height: 100%;
-    background: linear-gradient(90deg, #DAA520, #FFD700);
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end)); /* Gradiente naranja/rojo */
     transition: width 0.6s ease;
 }
-/* === FIN BARRA DE PROGRESO GLOBAL DORADA === */
 
 .titulo-premio {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
+    color: var(--text-light); /* Título claro */
 }
 
 .imagen-producto-grande img {
     width: 100%;
     max-width: 500px;
     border-radius: 12px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    box-shadow: 0 0 12px rgba(0,0,0,0.5); /* Sombra más oscura */
     margin-bottom: 1.5rem;
 }
 
@@ -808,33 +835,36 @@ form button:active {
 }
 
 .dato {
-    background: #edf2f7;
+    background: var(--secondary-dark); /* Fondo oscuro para el dato */
     border-radius: 10px;
     padding: 1rem 1.5rem;
     font-weight: bold;
-    color: #2d3748;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    flex: 1 1 calc(50% - 1rem); /* 2 columnas en móviles */
+    color: var(--text-light); /* Texto claro */
+    box-shadow: var(--shadow-dark-subtle);
+    flex: 1 1 calc(50% - 1rem);
     min-width: 140px;
+    border: 1px solid var(--border-dark); /* Borde oscuro */
 }
 
 .descripcion-rifa {
     max-width: 800px;
     margin: 2rem auto;
     padding: 1.5rem;
-    background: #ffffff;
+    background: var(--secondary-dark); /* Fondo oscuro */
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    box-shadow: var(--shadow-dark-subtle);
     text-align: left;
     line-height: 1.6;
+    color: var(--text-medium); /* Texto gris medio */
 }
 
 .descripcion-rifa h3 {
     margin-bottom: 1rem;
+    color: var(--text-light); /* Título claro */
 }
 
 .descripcion-rifa p {
-    color: #4a5568;
+    color: var(--text-medium);
     font-size: 1rem;
 }
 
@@ -842,14 +872,16 @@ form button:active {
     max-width: 800px;
     margin: 2rem auto;
     padding: 2rem;
-    background: #ffffff;
+    background: var(--secondary-dark); /* Fondo oscuro */
     border-radius: 12px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.06);
+    box-shadow: var(--shadow-dark-subtle);
     text-align: center;
+    color: var(--text-light); /* Texto claro */
 }
 
 .seccion-compra h3 {
     margin-bottom: 1.5rem;
+    color: var(--text-light); /* Título claro */
 }
 
 .botones-precio {
@@ -861,10 +893,10 @@ form button:active {
 }
 
 .botones-precio button {
-    background: #ebf8ff;
-    color: #2b6cb0;
+    background: var(--tertiary-dark); /* Fondo oscuro para botón de precio */
+    color: var(--accent-orange); /* Texto de acento */
     padding: 0.6rem 1.2rem;
-    border: none;
+    border: 1px solid var(--border-dark);
     border-radius: 8px;
     font-weight: bold;
     cursor: default;
@@ -876,7 +908,7 @@ form button:active {
 .botones-precio button span {
     font-size: 1.1rem;
     font-weight: bold;
-    color: #2b6cb0;
+    color: var(--accent-orange); /* Acento naranja */
 }
 
 /* Contenedor de mensajes (éxito/error) */
@@ -890,23 +922,23 @@ form button:active {
     opacity: 0;
     transform: translateY(-20px);
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-    box-shadow: var(--shadow-subtle);
+    box-shadow: var(--shadow-dark-subtle);
 }
 
 /* Mensaje de éxito */
 #message-container.success {
-    background-color: #D4EDDA;
-    color: #155724;
-    border: 1px solid #C3E6CB;
+    background-color: #2F855A; /* Verde oscuro para éxito */
+    color: #F0FFF4; /* Texto claro */
+    border: 1px solid #38A169;
     opacity: 1;
     transform: translateY(0);
 }
 
 /* Mensaje de error */
 #message-container.error {
-    background-color: #F8D7DA;
-    color: #721C24;
-    border: 1px solid #F5C6CB;
+    background-color: #C53030; /* Rojo oscuro para error */
+    color: #FFF5F5; /* Texto claro */
+    border: 1px solid #E53E3E;
     opacity: 1;
     transform: translateY(0);
 }
@@ -915,15 +947,15 @@ form button:active {
 .total-a-pagar {
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--primary-blue);
+    color: var(--text-light); /* Texto claro */
     margin: 20px auto;
     max-width: 450px;
     text-align: center;
-    background: #e0f2fe;
+    background: var(--tertiary-dark); /* Fondo oscuro */
     padding: 12px 20px;
     border-radius: 10px;
-    border: 1px solid var(--light-blue);
-    box-shadow: 0 3px 8px rgba(49, 130, 206, 0.15);
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -940,7 +972,7 @@ form button:active {
 
 .total-a-pagar #totalPagarDisplay {
     font-size: 1.2em;
-    color: var(--primary-blue);
+    color: var(--accent-orange); /* Acento naranja */
 }
 
 .cantidad-comprar {
@@ -951,31 +983,31 @@ form button:active {
     gap: 0.6rem;
 }
 
-/* --- Botones de cantidad (+/-) - MEJORADOS --- */
+/* --- Botones de cantidad (+/-) --- */
 .cantidad-comprar button {
     font-size: 1.6rem;
     padding: 0.3rem 1rem;
-    background: var(--secondary-blue);
-    color: white;
+    background: var(--accent-orange); /* Acento naranja */
+    color: var(--primary-dark); /* Texto oscuro */
     border: none;
     border-radius: var(--button-radius);
     cursor: pointer;
     width: auto;
-    box-shadow: 0 4px 10px rgba(42, 82, 138, 0.2);
+    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.3);
     transition: all var(--transition-fast);
     font-family: 'Montserrat', sans-serif;
     outline: none;
 }
 
 .cantidad-comprar button:hover {
-    background: var(--light-blue);
+    background: var(--accent-red); /* Rojo en hover */
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(42, 82, 138, 0.3);
+    box-shadow: 0 6px 14px rgba(224, 59, 32, 0.4);
 }
 
 .cantidad-comprar button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(42, 82, 138, 0.2);
+    box-shadow: 0 2px 5px rgba(255, 107, 0, 0.2);
 }
 
 .cantidad-comprar input {
@@ -983,12 +1015,14 @@ form button:active {
     text-align: center;
     font-size: 1.1rem;
     border-radius: var(--button-radius);
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--border-dark);
     padding: 0.5rem;
     font-weight: 500;
+    background-color: var(--tertiary-dark);
+    color: var(--text-light);
 }
 
-/* --- Botones de cantidad rápida (1, 5, 10, etc.) - MEJORADOS --- */
+/* --- Botones de cantidad rápida (1, 5, 10, etc.) --- */
 .botones-cantidad-rapida {
     display: flex;
     justify-content: center;
@@ -998,8 +1032,8 @@ form button:active {
 }
 
 .botones-cantidad-rapida button {
-    background: #ebf8ff;
-    border: 1px solid var(--border-light);
+    background: var(--tertiary-dark); /* Fondo oscuro */
+    border: 1px solid var(--border-dark);
     border-radius: var(--button-radius);
     padding: 0.7rem 1.1rem;
     font-weight: 500;
@@ -1008,31 +1042,31 @@ form button:active {
     flex: 1 1 auto;
     max-width: 60px;
     font-size: 0.95rem;
-    color: var(--text-dark);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    color: var(--text-light); /* Texto claro */
+    box-shadow: var(--shadow-dark-subtle);
     font-family: 'Montserrat', sans-serif;
     outline: none;
 }
 
 .botones-cantidad-rapida button:hover {
-    background: #bee3f8;
-    border-color: var(--secondary-blue);
-    color: var(--secondary-blue);
+    background: var(--secondary-dark); /* Un poco más oscuro */
+    border-color: var(--accent-orange); /* Borde de acento */
+    color: var(--accent-orange); /* Texto de acento */
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .botones-cantidad-rapida button:active {
     transform: translateY(0);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .botones-cantidad-rapida button.seleccionado {
-    background: var(--secondary-blue);
-    color: white;
-    border-color: var(--secondary-blue);
+    background: var(--accent-orange); /* Acento naranja */
+    color: var(--primary-dark); /* Texto oscuro */
+    border-color: var(--accent-orange);
     transform: scale(1.05);
-    box-shadow: 0 3px 8px rgba(42, 82, 138, 0.2);
+    box-shadow: 0 3px 8px rgba(255, 107, 0, 0.3);
 }
 
 .formulario-usuario {
@@ -1052,14 +1086,18 @@ form button:active {
     max-width: 100px;
     flex-shrink: 0;
     border-radius: var(--button-radius);
+    background-color: var(--tertiary-dark);
+    color: var(--text-light);
 }
 .cedula-grupo input {
     flex-grow: 1;
     border-radius: var(--button-radius);
+    background-color: var(--tertiary-dark);
+    color: var(--text-light);
 }
 
 
-/* --- Botones de formulario (p. ej., "Continuar", "Pagar") - MEJORADOS y APILADOS --- */
+/* --- Botones de formulario (p. ej., "Continuar", "Pagar") --- */
 .botones-form {
     display: flex;
     flex-direction: column;
@@ -1074,12 +1112,12 @@ form button:active {
     border: none;
     border-radius: var(--button-radius);
     font-weight: 600;
-    background: var(--secondary-blue);
-    color: white;
+    background: var(--accent-orange); /* Acento naranja */
+    color: var(--primary-dark); /* Texto oscuro */
     cursor: pointer;
     width: 100%;
     max-width: 250px;
-    box-shadow: 0 4px 10px rgba(42, 82, 138, 0.2);
+    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.3);
     transition: all var(--transition-fast);
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
@@ -1087,13 +1125,13 @@ form button:active {
     outline: none;
 }
 .botones-form button:hover {
-    background: var(--light-blue);
+    background: var(--accent-red); /* Rojo en hover */
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(42, 82, 138, 0.3);
+    box-shadow: 0 6px 14px rgba(224, 59, 32, 0.4);
 }
 .botones-form button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(42, 82, 138, 0.2);
+    box-shadow: 0 2px 5px rgba(255, 107, 0, 0.2);
 }
 
 
@@ -1101,11 +1139,12 @@ form button:active {
     max-width: 800px;
     margin: 2rem auto;
     padding: 2rem;
-    background: var(--bg-white);
+    background: var(--secondary-dark); /* Fondo oscuro */
     border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    box-shadow: var(--shadow-dark-medium);
     text-align: center;
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--border-dark);
+    color: var(--text-light); /* Texto claro */
 }
 
 .metodos-pago {
@@ -1118,7 +1157,7 @@ form button:active {
 
 .metodo {
     border: 2px solid transparent;
-    background: #fdfefe;
+    background: var(--tertiary-dark); /* Fondo oscuro */
     padding: 1.2rem;
     border-radius: 12px;
     width: 100%;
@@ -1127,7 +1166,7 @@ form button:active {
     transition: all var(--transition-fast);
     text-align: center;
     flex: 1 1 auto;
-    box-shadow: var(--shadow-subtle);
+    box-shadow: var(--shadow-dark-subtle);
 }
 
 .metodo img {
@@ -1139,10 +1178,10 @@ form button:active {
 
 .metodo:hover,
 .metodo.seleccionado {
-    border-color: var(--secondary-blue);
-    background: #ebf8ff;
+    border-color: var(--accent-orange); /* Borde de acento naranja */
+    background: var(--secondary-dark); /* Fondo ligeramente más oscuro */
     transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(42, 82, 138, 0.15);
+    box-shadow: 0 6px 12px rgba(255, 107, 0, 0.3);
 }
 
 .oculto {
@@ -1152,11 +1191,12 @@ form button:active {
 .detalles-pago {
     margin-top: 1.2rem;
     text-align: left;
-    background: #fdfefe;
+    background: var(--tertiary-dark); /* Fondo oscuro */
     padding: 1.2rem;
     border-radius: 10px;
-    border: 1px solid var(--border-light);
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-dark);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    color: var(--text-medium);
 }
 
 .detalles-pago input[type="text"],
@@ -1166,16 +1206,17 @@ form button:active {
     padding: 0.8rem;
     font-size: 0.95rem;
     border-radius: var(--button-radius);
-    border: 1px solid var(--border-light);
-    background-color: #ffffff;
+    border: 1px solid var(--border-dark);
+    background-color: var(--secondary-dark); /* Fondo oscuro */
+    color: var(--text-light); /* Texto claro */
     transition: border var(--transition-fast);
     font-family: 'Montserrat', sans-serif;
 }
 
 .detalles-pago input:focus {
     outline: none;
-    border: 2px solid var(--secondary-blue);
-    box-shadow: 0 0 0 3px rgba(42, 82, 138, 0.2);
+    border: 2px solid var(--accent-orange); /* Acento naranja */
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.3);
 }
 
 .detalles-pago label {
@@ -1183,7 +1224,7 @@ form button:active {
     margin-top: 1.5rem;
     margin-bottom: 0.4rem;
     font-weight: 600;
-    color: var(--primary-blue);
+    color: var(--text-light); /* Texto claro */
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
 }
@@ -1198,12 +1239,12 @@ form button:active {
     max-height: 200px;
     border-radius: 10px;
     margin-top: 0.6rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    border: 1px solid var(--border-light);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    border: 1px solid var(--border-dark);
 }
 
 .mensaje-error {
-    color: #E53E3E;
+    color: var(--accent-red);
     margin-top: 0.6rem;
     font-size: 0.95rem;
     font-weight: 500;
@@ -1211,27 +1252,28 @@ form button:active {
 }
 
 #seccion-final {
-    background: radial-gradient(circle at top left, #f8fafc, #edf2f7);
+    background: radial-gradient(circle at top left, var(--primary-dark), var(--secondary-dark)); /* Gradiente de fondo oscuro */
     padding: 3rem 1rem;
     text-align: center;
+    color: var(--text-light);
 }
 
 .final-card {
     max-width: 800px;
     margin: auto;
-    background: #ffffff;
-    border: 2px dashed #3182ce;
+    background: var(--secondary-dark); /* Fondo oscuro */
+    border: 2px dashed var(--accent-orange); /* Borde de acento naranja */
     border-radius: 16px;
     padding: 2rem;
-    box-shadow: 0 0 20px rgba(49, 130, 206, 0.15);
-    background-image: url('img/pattern-light.svg');
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+    /* background-image: url('img/pattern-dark.svg');  Podrías necesitar una imagen de patrón oscuro */
     background-repeat: repeat;
 }
 
 .icono-check {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: #38a169;
+    color: #38a169; /* Verde para el check (podrías cambiarlo a un dorado si prefieres) */
     animation: popIn 0.6s ease forwards;
 }
 
@@ -1239,14 +1281,15 @@ form button:active {
     text-align: left;
     margin: 2rem 0;
     line-height: 1.7;
-    background: #ebf8ff;
+    background: var(--tertiary-dark); /* Fondo oscuro para el resumen */
     padding: 1.2rem;
     border-radius: 10px;
-    box-shadow: 0 0 4px rgba(0,0,0,0.05);
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
     font-family: 'Montserrat', sans-serif;
+    color: var(--text-medium); /* Texto gris medio */
 }
 
-/* === BOLETOS ASIGNADOS - VUELTA A ORIGINAL === */
+/* === BOLETOS ASIGNADOS === */
 .boletos-asignados {
     display: flex;
     flex-wrap: wrap;
@@ -1256,38 +1299,37 @@ form button:active {
 }
 
 .boletos-asignados .boleto {
-    background: #ebf8ff;
-    border: 2px solid #3182ce;
+    background: var(--tertiary-dark); /* Fondo oscuro */
+    border: 2px solid var(--accent-orange); /* Borde de acento naranja */
     padding: 0.8rem 1.2rem;
     border-radius: 12px;
     font-weight: bold;
-    color: #2a528a;
+    color: var(--text-light); /* Texto claro */
     font-size: 1.1rem;
     min-width: 80px;
     animation: fadeIn 0.5s ease forwards;
     white-space: nowrap;
 }
-/* === FIN BOLETOS ASIGNADOS === */
 
 .mensaje-correo {
     font-size: 1.1rem;
     margin-top: 1rem;
-    color: #4a5568;
+    color: var(--text-medium); /* Texto gris medio */
     font-family: 'Montserrat', sans-serif;
 }
 
-/* --- Botón Volver al Inicio - MEJORADO --- */
+/* --- Botón Volver al Inicio --- */
 .btn-volver-inicio {
     display: inline-block;
-    background: linear-gradient(to right, var(--accent-gold), var(--light-gold));
-    color: var(--primary-blue);
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end)); /* Gradiente naranja/rojo */
+    color: var(--primary-dark); /* Texto oscuro para contraste */
     padding: var(--button-padding-y) 2rem;
     border-radius: var(--button-radius);
     text-decoration: none;
     font-weight: 700;
     font-size: 1.05rem;
     margin-top: 2.5rem;
-    box-shadow: 0 6px 16px rgba(255, 215, 0, 0.25);
+    box-shadow: 0 6px 16px rgba(255, 107, 0, 0.4);
     transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
     font-family: 'Montserrat', sans-serif;
     outline: none;
@@ -1295,12 +1337,12 @@ form button:active {
 
 .btn-volver-inicio:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.35);
-    background: linear-gradient(to right, var(--accent-gold), #FFEB3B);
+    box-shadow: 0 8px 20px rgba(255, 107, 0, 0.5);
+    background: linear-gradient(to right, var(--accent-red), var(--gradient-start)); /* Invertir gradiente o variar */
 }
 .btn-volver-inicio:active {
     transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(255, 215, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(255, 107, 0, 0.2);
 }
 
 
@@ -1325,27 +1367,29 @@ form button:active {
 #modalTerminos .modal-contenido.terminos {
     max-width: 650px;
     text-align: left;
+    background-color: var(--secondary-dark); /* Fondo oscuro */
+    color: var(--text-light); /* Texto claro */
 }
 
 #modalTerminos h2 {
     text-align: center;
-    color: var(--primary-blue);
+    color: var(--text-light); /* Título claro */
     margin-bottom: 1rem;
 }
 
 .terminos-texto {
     max-height: 40vh;
     overflow-y: auto;
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--border-dark);
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 1.5rem;
-    background-color: var(--bg-light);
+    background-color: var(--tertiary-dark); /* Fondo oscuro */
 }
 
 .terminos-texto p, .terminos-texto li {
     font-size: 0.95rem;
-    color: var(--text-dark);
+    color: var(--text-medium); /* Texto gris medio */
     line-height: 1.6;
 }
 
@@ -1373,28 +1417,29 @@ form button:active {
 
 /* Botón Aceptar - Estilo primario */
 .btn-aceptar {
-    background-color: var(--secondary-blue);
-    color: white;
-    box-shadow: 0 4px 10px rgba(42, 82, 138, 0.2);
+    background-color: var(--accent-orange); /* Acento naranja */
+    color: var(--primary-dark); /* Texto oscuro */
+    box-shadow: 0 4px 10px rgba(255, 107, 0, 0.3);
 }
 
 .btn-aceptar:hover {
-    background-color: var(--light-blue);
+    background-color: var(--accent-red); /* Rojo en hover */
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(42, 82, 138, 0.3);
+    box-shadow: 0 6px 14px rgba(224, 59, 32, 0.4);
 }
 
 /* Botón Rechazar - Estilo de "peligro" o secundario */
 .btn-rechazar {
-    background-color: #E53E3E;
-    color: white;
-    box-shadow: 0 4px 10px rgba(229, 62, 62, 0.2);
+    background-color: var(--secondary-dark); /* Gris oscuro */
+    color: var(--text-light); /* Texto claro */
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .btn-rechazar:hover {
-    background-color: #C53030;
+    background-color: var(--primary-dark); /* Más oscuro en hover */
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(229, 62, 62, 0.3);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
 }
 
 /* === HEADER IMAGES CORREGIDAS Y RESPONSIVAS === */
@@ -1402,7 +1447,7 @@ form button:active {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap; /* CORREGIDO: Evita que los elementos se apilen */
+    flex-wrap: nowrap;
     gap: 2rem;
     padding: 1.5rem 1rem;
     margin: 0 auto;
@@ -1501,13 +1546,13 @@ form button:active {
 
 /* Estilo para campos requeridos no completados */
 /*.campo-requerido {
-  border: 2px solid #E53E3E !important; /* rojo alerta */
- /* background-color: #fff5f5;             /* fondo ligeramente rosado */
- /* transition: border-color 0.3s, background-color 0.3s;
+  border: 2px solid var(--accent-red) !important;
+  background-color: #3b0000; /* Fondo oscuro ligeramente rojizo */
+/* transition: border-color 0.3s, background-color 0.3s;
 }
 
 .error-campo {
-  color: #E53E3E;
+  color: var(--accent-red);
   font-size: 0.9rem;
   margin-top: 4px;
 }
@@ -1558,61 +1603,61 @@ form button:active {
 
 /* Estilo base para todos los tipos de alerta */
 .alert {
-    padding: 1rem 1.5rem; /* Relleno interno */
-    border-radius: 8px; /* Bordes redondeados */
-    margin: 0.5rem 0; /* Margen superior e inferior para separación */
-    font-size: 1rem; /* Tamaño de fuente */
-    font-weight: 600; /* Negrita */
-    line-height: 1.4; /* Espaciado de línea */
-    text-align: center; /* Centrar texto */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    border: 1px solid transparent; /* Borde predeterminado transparente */
-    display: block; /* Asegura que ocupe su propio bloque */
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
+    display: block;
 }
 
 .error-message {
-    color: #E53E3E; /* Tu variable de error */
+    color: var(--accent-red);
     font-size: 0.85rem;
     margin-top: 0.2rem;
-    display: block; /* Asegura que ocupe su propia línea */
+    display: block;
 }
 /* O si quieres resaltar el input */
 .input-error {
-    border-color: #E53E3E !important;
-    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2) !important;
+    border-color: var(--accent-red) !important;
+    box-shadow: 0 0 0 3px rgba(224, 59, 32, 0.3) !important;
 }
 
 /* Estilo para el botón de Copiar Datos */
 .btn-copiar-datos {
-    background-color: #1A365D; /* Un azul claro, puedes ajustar con una de tus variables o un color fijo */
-    color: white;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end)); /* Gradiente */
+    color: var(--primary-dark); /* Texto oscuro para contraste */
     padding: 0.6rem 1.2rem;
     border: none;
-    border-radius: var(--button-radius); /* Usando tu variable de radio de botón */
+    border-radius: var(--button-radius);
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
     transition: background-color var(--transition-fast), transform 0.15s ease, box-shadow var(--transition-fast);
-    box-shadow: 0 3px 8px rgba(49, 130, 206, 0.2);
-    margin-top: 1rem; /* Margen superior para separarlo del texto */
-    margin-bottom: 1rem; /* Margen inferior para separarlo del input */
-    display: inline-block; /* Para que no ocupe todo el ancho si no es necesario */
-    width: auto; /* Ancho automático según contenido */
-    max-width: 200px; /* Ancho máximo para pantallas grandes */
-    text-transform: uppercase; /* Opcional: texto en mayúsculas */
-    letter-spacing: 0.02em; /* Opcional: espaciado entre letras */
-    outline: none; /* Elimina el contorno al hacer focus */
+    box-shadow: 0 3px 8px rgba(255, 107, 0, 0.3);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    width: auto;
+    max-width: 200px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    outline: none;
 }
 
 /* Estado hover (al pasar el ratón por encima) */
 .btn-copiar-datos:hover {
-    background-color: #3182ce; /* Un tono más oscuro de azul para el hover */
-    transform: translateY(-2px); /* Pequeño efecto de elevación */
-    box-shadow: 0 5px 12px rgba(49, 130, 206, 0.3); /* Sombra más pronunciada */
+    background: linear-gradient(to right, var(--accent-red), var(--gradient-start)); /* Invertir gradiente o variar */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(224, 59, 32, 0.4);
 }
 
 /* Estado active (al hacer clic) */
 .btn-copiar-datos:active {
-    transform: translateY(0); /* Vuelve a la posición original */
-    box-shadow: 0 1px 3px rgba(49, 130, 206, 0.2); /* Sombra más sutil */
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(255, 107, 0, 0.2);
 }
