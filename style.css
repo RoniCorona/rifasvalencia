@@ -335,24 +335,30 @@ form button:active {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2.5rem; /* Aumentar el espacio entre los "items" de rifa */
+    gap: 2.5rem; /* Espacio entre los bloques de rifa */
 }
 
-/* === Unidad Individual de Rifa (ya no es una "card") === */
-.rifa-unit {
+/* === Unidad Individual de Rifa (el "bloque" de cada rifa) === */
+.rifa-unit-container {
     width: 100%;
-    max-width: 350px; /* Mantener un ancho máximo para la agrupación de elementos */
-    background: var(--secondary-dark); /* Fondo para cada unidad de rifa */
+    max-width: 350px; /* Ancho máximo para cada bloque */
+    background: var(--secondary-dark); /* Fondo del bloque completo */
     border-radius: 14px;
     box-shadow: var(--shadow-dark-medium);
-    overflow: hidden; /* Asegura que la imagen no se salga de los bordes redondeados del contenedor */
+    overflow: hidden; /* Asegura que la imagen y el contenido se vean bien */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrar contenido */
+    align-items: center; /* Centrar contenido horizontalmente */
     padding-bottom: 0; /* Padding se manejará en los elementos internos */
     border: 1px solid var(--border-dark); /* Borde para el conjunto de elementos */
-    position: relative; /* Para posibles efectos internos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto hover para el bloque completo */
 }
+
+.rifa-unit-container:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* Sombra más oscura en hover */
+}
+
 
 .titulo-producto-rifa {
     font-size: 1.35rem;
@@ -364,14 +370,14 @@ form button:active {
     color: var(--text-light);
 }
 
-/* === Imagen de la Rifa (independiente del contenedor de la tarjeta) === */
+/* === Imagen de la Rifa (independiente, más pequeña) === */
 .imagen-rifa-standalone {
-    width: 100%;
-    height: 250px; /* Altura fija para la imagen */
+    width: calc(100% - 2rem); /* Ancho ajustado para tener un pequeño padding visual */
+    height: 180px; /* **IMAGEN MÁS PEQUEÑA** */
     overflow: hidden;
-    margin-bottom: 0.5rem; /* Espacio debajo de la imagen */
-    border-radius: 0; /* Si queremos la imagen con bordes rectos superior */
-    /* Podrías añadir border-top-left-radius/border-top-right-radius si quieres los de arriba */
+    margin-bottom: 0.8rem; /* Espacio debajo de la imagen */
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    box-shadow: var(--shadow-dark-subtle); /* Sombra para la imagen */
 }
 
 .imagen-rifa-standalone img {
@@ -382,8 +388,8 @@ form button:active {
     transition: transform 0.3s ease;
 }
 
-.rifa-unit:hover .imagen-rifa-standalone img {
-    transform: scale(1.03); /* Zoom sutil al pasar el ratón */
+.rifa-unit-container:hover .imagen-rifa-standalone img {
+    transform: scale(1.05); /* Zoom sutil en la imagen al hacer hover en el contenedor */
 }
 
 .rifa-unit-info {
@@ -498,6 +504,7 @@ form button:active {
     box-sizing: border-box;
     border-bottom-left-radius: 14px; /* Para que coincida con la unidad de rifa */
     border-bottom-right-radius: 14px;
+    margin-top: 1.5rem; /* Margen superior para separarlo de los botones */
 }
 
 .progreso-text {
@@ -1476,7 +1483,7 @@ form button:active {
     main { padding: 1.5rem; }
     h1 { font-size: 2rem; }
     h2 { font-size: 1.6rem; }
-    .rifa-unit { /* Ahora aplicamos el ancho a la unidad completa */
+    .rifa-unit-container { /* Ahora aplicamos el ancho a la unidad completa */
         width: calc(50% - 1.5rem);
         max-width: none;
     }
@@ -1517,7 +1524,7 @@ form button:active {
     h1 { font-size: 2.5rem; }
     h2 { font-size: 2.2rem; }
     main { padding: 2.5rem 2rem; }
-    .rifa-unit { /* Ahora aplicamos el ancho a la unidad completa */
+    .rifa-unit-container { /* Ahora aplicamos el ancho a la unidad completa */
         width: calc(33.333% - 1.5rem);
         max-width: none;
     }
