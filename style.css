@@ -335,109 +335,88 @@ form button:active {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2.5rem; /* Aumentar el espacio entre los "items" de rifa */
 }
 
-/* === Tarjetas de Rifa - DISEÑO ANTERIOR CON AJUSTES === */
-.rifa-card {
+/* === Unidad Individual de Rifa (ya no es una "card") === */
+.rifa-unit {
     width: 100%;
-    max-width: 350px;
+    max-width: 350px; /* Mantener un ancho máximo para la agrupación de elementos */
+    background: var(--secondary-dark); /* Fondo para cada unidad de rifa */
     border-radius: 14px;
-    background: var(--secondary-dark); /* Fondo oscuro para tarjetas */
     box-shadow: var(--shadow-dark-medium);
-    overflow: hidden; /* Mantiene el contenido dentro de los bordes redondeados */
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+    overflow: hidden; /* Asegura que la imagen no se salga de los bordes redondeados del contenedor */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid var(--border-dark); /* Borde para tarjeta */
-    padding-bottom: 0; /* Asegurarse que no haya padding extra abajo */
+    align-items: center; /* Centrar contenido */
+    padding-bottom: 0; /* Padding se manejará en los elementos internos */
+    border: 1px solid var(--border-dark); /* Borde para el conjunto de elementos */
+    position: relative; /* Para posibles efectos internos */
 }
-
-/* La imagen ahora es un elemento separado pero con el mismo tamaño y proporciones */
-.imagen-rifa {
-    height: 250px; /* Altura fija para la imagen, similar a la anterior */
-    overflow: hidden;
-    /* Remover bordes redondeados aquí si la imagen no se "encierra" en la tarjeta */
-    /* Para que la imagen parezca "libre" pero tenga el mismo tamaño, podemos darle margen negativo o posicionarla */
-    /* Sin embargo, la forma más sencilla es que la imagen tenga el mismo width que la tarjeta */
-    /* y el overflow hidden en la tarjeta principal la "recortará" a los bordes */
-}
-
-.imagen-rifa img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    /* Transición para un posible efecto hover */
-    transition: transform 0.3s ease;
-}
-
-.rifa-card:hover .imagen-rifa img {
-    transform: scale(1.03); /* Zoom sutil al pasar el ratón */
-}
-
-.header-card-info {
-    /* Estilos para el contenedor del título y la imagen, si es necesario */
-    /* En este diseño, la imagen está directamente en la tarjeta, no superpuesta */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 1rem; /* Padding para separar del borde superior de la tarjeta */
-}
-
 
 .titulo-producto-rifa {
     font-size: 1.35rem;
-    margin: 0.5rem 0.8rem;
+    margin: 1rem 0.8rem 0.5rem; /* Margen superior para el título */
     padding: 0;
     text-align: center;
     font-weight: bold;
     line-height: 1.3;
-    color: var(--text-light); /* Título de tarjeta claro */
+    color: var(--text-light);
 }
 
-.contenido-rifa {
-    padding: 0.5rem 1rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: var(--text-medium);
+/* === Imagen de la Rifa (independiente del contenedor de la tarjeta) === */
+.imagen-rifa-standalone {
+    width: 100%;
+    height: 250px; /* Altura fija para la imagen */
+    overflow: hidden;
+    margin-bottom: 0.5rem; /* Espacio debajo de la imagen */
+    border-radius: 0; /* Si queremos la imagen con bordes rectos superior */
+    /* Podrías añadir border-top-left-radius/border-top-right-radius si quieres los de arriba */
 }
 
-.contenido-rifa p {
-    margin: 0.3rem 0;
-    color: var(--text-medium); /* Texto de párrafo en gris medio */
+.imagen-rifa-standalone img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.rifa-unit:hover .imagen-rifa-standalone img {
+    transform: scale(1.03); /* Zoom sutil al pasar el ratón */
+}
+
+.rifa-unit-info {
+    padding: 0 1rem 0.5rem; /* Padding horizontal y inferior */
+    text-align: center;
+    width: 100%;
 }
 
 .descripcion-corta {
     font-size: 0.95rem;
     color: var(--text-medium);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .precio {
     font-weight: bold;
-    color: var(--accent-orange); /* Precio en acento naranja */
+    color: var(--accent-orange);
     font-size: 1.1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* Espacio antes de los botones */
 }
 
-/* --- Contenedor de Acciones de la Tarjeta --- */
-.acciones {
+/* === Contenedor de Acciones (Botones) === */
+.acciones-standalone {
     display: flex;
     flex-direction: column; /* Botones apilados */
     justify-content: center;
     align-items: center;
-    padding: 0 1rem 1rem; /* Padding inferior para los botones */
+    padding: 0 1rem 1rem; /* Padding horizontal y inferior */
     gap: 0.8rem;
     width: 100%;
 }
 
-/* --- Botón Comprar de la tarjeta --- */
+/* --- Botón Comprar --- */
 .btn-comprar {
     display: block;
     width: 100%;
@@ -478,7 +457,7 @@ form button:active {
     opacity: 0.8;
 }
 
-/* --- Botón Ver Tickets de la tarjeta --- */
+/* --- Botón Ver Tickets --- */
 .ver-tickets {
     background: var(--tertiary-dark);
     display: block;
@@ -510,46 +489,43 @@ form button:active {
     box-shadow: 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* === SECCIÓN DE PROGRESO (TEXTO) - REUBICADA BAJO LOS BOTONES === */
-.progreso-wrapper {
+/* === BARRA DE PROGRESO (con texto y barra visual) - DEBAJO DE LOS BOTONES === */
+.progreso-wrapper-standalone {
     width: 100%;
-    padding: 1rem; /* Padding para separar del resto del contenido de la tarjeta */
-    background: var(--primary-dark); /* Fondo para la barra de progreso */
-    border-top: 1px solid var(--border-dark); /* Separador */
-    box-sizing: border-box; /* Asegura que el padding no añada ancho extra */
-    border-bottom-left-radius: 14px; /* Para que la barra se vea como parte de la tarjeta */
+    padding: 1rem;
+    background: var(--primary-dark); /* Fondo oscuro para el wrapper de progreso */
+    border-top: 1px solid var(--border-dark); /* Separador visual */
+    box-sizing: border-box;
+    border-bottom-left-radius: 14px; /* Para que coincida con la unidad de rifa */
     border-bottom-right-radius: 14px;
 }
 
-.progreso {
-    background: none; /* Sin fondo de color, el gradiente será la barra */
-    color: var(--text-light); /* Texto claro */
+.progreso-text {
+    background: none;
+    color: var(--text-light);
     padding: 0;
     font-weight: bold;
     font-size: 0.95rem;
-    margin: 0 0 0.5rem 0; /* Margen inferior para separar de la barra visual */
+    margin: 0 0 0.5rem 0;
     text-align: center;
 }
 
-.barra-container {
+.barra-container-standalone {
     width: 100%;
     height: 12px;
-    background-color: var(--border-dark); /* Fondo oscuro de la barra */
+    background-color: var(--border-dark);
     margin: 0;
     position: relative;
-    border-radius: 6px; /* Bordes redondeados para la barra */
+    border-radius: 6px;
     overflow: hidden;
 }
 
-/* === BARRA DE PROGRESO (VISUAL) === */
-.barra-progreso {
+.barra-progreso-standalone {
     height: 100%;
-    background: linear-gradient(90deg, var(--accent-orange), var(--accent-red)); /* Gradiente naranja/rojo */
+    background: linear-gradient(90deg, var(--accent-orange), var(--accent-red));
     transition: width 0.6s ease;
-    border-radius: 6px; /* Para que coincida con el contenedor */
+    border-radius: 6px;
 }
-/* === FIN BARRA DE PROGRESO DORADA === */
-
 
 /* === ESTILOS DEL OVERLAY DEL MODAL === */
 .modal {
@@ -1500,9 +1476,9 @@ form button:active {
     main { padding: 1.5rem; }
     h1 { font-size: 2rem; }
     h2 { font-size: 1.6rem; }
-    .rifa-card {
+    .rifa-unit { /* Ahora aplicamos el ancho a la unidad completa */
         width: calc(50% - 1.5rem);
-        max-width: none; /* Permitir que ocupe más espacio */
+        max-width: none;
     }
     .datos-premio .dato {
         flex: 1 1 calc(50% - 1rem);
@@ -1541,7 +1517,7 @@ form button:active {
     h1 { font-size: 2.5rem; }
     h2 { font-size: 2.2rem; }
     main { padding: 2.5rem 2rem; }
-    .rifa-card {
+    .rifa-unit { /* Ahora aplicamos el ancho a la unidad completa */
         width: calc(33.333% - 1.5rem);
         max-width: none;
     }
